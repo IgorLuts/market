@@ -39,3 +39,4 @@ group :development do
 end
 
 gem 'puma'
+gem 'newrelic_rpm'
