@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Market</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Sport Store" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Sport Store" %>">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/header' %>
+    </header>
+    <main role="main">
+      <div class="row">
+        <%= render 'layouts/messages' %>
+        <div class="col-sm-9" >
+            <%= yield %>
+        </div>  
+        <div class="col-sm-3" >
+            <%= render 'layouts/sidebar' %>
+        </div>
+   
+      </div>
+    </main>
+    <footer id="footer">
+      <%= render 'layouts/footer' %>
+    </footer>
+  </body>
 </html>

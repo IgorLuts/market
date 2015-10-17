@@ -1,0 +1,15 @@
+<div class="col-md-4">
+  <div class="thumbnail">
+    <%= image_tag product.image, class:"img-responsive" %>
+    <div class="caption">
+      <h4><%= product.title %></h4>
+      <div class="price well">
+        <%= number_to_currency product.price %>
+      </div>
+      <p>
+        <%= link_to "Купить", product, class:"btn btn-danger btn-xs " %>
+        <%= link_to "Подробно", product, class:"btn btn-primary btn-xs " %>
+      </p>
+    </div>
+  </div>
+</div>

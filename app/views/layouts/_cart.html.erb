@@ -1,0 +1,9 @@
+<%= link_to shopping_cart_path do %>
+  <i class="fa fa-shopping-cart"></i>
+  <% if @shopping_cart and !@shopping_cart.empty? %>
+    Товаров: <%= @shopping_cart.total_unique_items %> 
+    (<%=number_to_currency(@shopping_cart.total) %>)
+  <% else %>
+    Корзина пуста
+  <% end %>
+ <% end %>
