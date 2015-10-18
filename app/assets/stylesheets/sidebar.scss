@@ -1,0 +1,40 @@
+.brands-name {
+  border: 1px solid #F7F7F0;
+  padding-bottom: 20px;
+  padding-top: 15px;
+}
+
+
+.brands-name  li a {
+  background-color: #FFFFFF;
+  color: #696763;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  padding: 5px 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.brands-name li a:hover{
+  background-color: #fff;
+  color: #696763;
+}
+
+.brands-name .nav .nav>li>a {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 50px;
+}
+
+.brands-name .nav>.active>a, 
+.brands-name .nav>li>a:hover{
+    color: #2FB209;                
+}
+
+.brands-name .nav ul.nav {
+    display: none;           
+}
+/* show active nested list */
+.brands-name .nav>.active>ul.nav {
+    display: block;           
+}

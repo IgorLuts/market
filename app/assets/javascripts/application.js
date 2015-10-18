@@ -22,13 +22,24 @@
  * http://codepen.io/unavezfui/pen/HibzA
  */
 
-  $(document).ready(function(){
-    $(".panel").on("show.bs.collapse hide.bs.collapse", function(e) {
-      if (e.type=='show'){
-        $(this).addClass('active');
-      }else{
-        $(this).removeClass('active');
-      }
-    });     
-  });
+  // $(document).ready(function(){
+  //   $(".panel").on("show.bs.collapse hide.bs.collapse", function(e) {
+  //     if (e.type=='show'){
+  //       $(this).addClass('active');
+  //     }else{
+  //       $(this).removeClass('active');
+  //     }
+  //   });     
+  // });
 
+$(document).ready(function(){
+  $("#menu").metisMenu();
+
+    var url = window.location;
+    var element = $('ul.nav a').filter(function() {
+        return this.href == url || url.href.indexOf(this.href) == 0;
+    }).addClass('active').parent().parent().addClass('in').parent();
+    if (element.is('li')) {
+        element.addClass('active');
+    }
+});

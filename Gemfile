@@ -12,7 +12,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'acts_as_shopping_cart'
 gem "font-awesome-rails"
-
+gem 'ratyrate'
+gem 'devise'
 group :development, :test do
   gem 'byebug'
 end

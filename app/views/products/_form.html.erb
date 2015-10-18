@@ -27,6 +27,16 @@
     <%= f.label :price %><br>
     <%= f.text_field :price %>
   </div>
+  <div class="field">
+
+  <% Category.all.each do |category| %>
+    <div class="checkbox">
+      <label>
+        <%= check_box_tag 'product[category_ids][]', category.id %> <%= category.name %>
+      </label>
+    </div> 
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

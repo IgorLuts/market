@@ -56,10 +56,10 @@ class ProductsController < ApplicationController
 
   private
     def set_product
-      @product = Product.find(params[:id])
+      @product = Product.includes(:categories).find(params[:id])
     end
 
     def product_params
-      params.require(:product).permit(:title, :description, :image, :price)
+      params.require(:product).permit(:title, :description, :image, :price, { category_ids: [] })
     end
 end
