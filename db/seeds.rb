@@ -1,4 +1,3 @@
-Product.destroy_all
 Category.destroy_all
 Category.create!([
   { name: "Шведские стенки"}, 
@@ -19,14 +18,8 @@ Category.create!([
   { name: "Грифы для штанги"}
 ])
 
-10.times do |index|
-  Product.create!(title: Faker::Commerce.product_name,
-                description: Faker::Lorem.paragraph,
-                price: Faker::Number.decimal(2),
-                image: "http://lorempixel.com/220/200/sports/#{index}")
-end
 
 AdminUser.create!(email: 'alexxty7@gmail.com', password: '2580gott', password_confirmation: '2580gott')
 
-p "Created #{Product.count} products"
+
 p "Created #{Category.count} categories"
