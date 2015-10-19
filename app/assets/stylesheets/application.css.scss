@@ -11,10 +11,12 @@
  * file per style scope.
  *
  *= require font-awesome
- *= require_tree .
  *= require_self
  */
-
+@import "framework_and_overrides";
+@import "categories";
+@import "products";
+@import "sidebar";
 
  $header-top-color:#2FB209;
  $footer-color:#3ECC14;
