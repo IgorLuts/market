@@ -18,6 +18,8 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'ancestry', '~> 2.1.0'
+gem "active_admin-sortable_tree"
 
 group :development, :test do
   gem 'byebug'

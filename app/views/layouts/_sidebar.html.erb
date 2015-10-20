@@ -3,7 +3,11 @@
             <div class="brands_products">
               <h2>Категории</h2>
               <div id="category_menu" class="brands-name">
-                <ul class="nav metismenu" id="menu">
+              <%= arranged_tree_as_list(@categories_list, {:sort_by => [:position], 
+                  :ul_class_top => [:nav, :sidebar], :ul_class_children => [:nav, :sidebar]}) do |category| %>
+                  <%= link_to category.name, category_path(category) %>
+              <% end %>
+                <!-- <ul class="nav metismenu" id="menu">
                   <li>
                     <a href="#">
                       <span class="pull-right"><i class="fa fa-plus"></i></span>
@@ -36,7 +40,7 @@
                   <li><a href="">Грифы для штанги</a></li>
                 </ul>
               </div>
-            </div>
+            </div> -->
             <!--/brands_products-->           
             
           </div>
