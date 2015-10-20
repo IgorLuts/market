@@ -40,4 +40,7 @@ $(document).ready(function(){
     if (element.is('li')) {
         element.addClass('active');
     }
+
+    var plus_sign = $('ul.nav.sidebar ul.nav.sidebar').parent();
+    plus_sign.addClass('plus')
 });

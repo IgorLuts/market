@@ -39,10 +39,11 @@
     display: block;           
 }
 
-// .plus:after {
-//   position: absolute;
-//   font-family: 'FontAwesome';
-//   top: 0;
-//   left: 10px;
-//   content: "\f067";
-// }
+.plus:after {
+  position: absolute;
+  font-family: 'FontAwesome';
+  top: 2px;
+  right: 15px;
+  content: "\f067";
+  color: #18187F;
+}

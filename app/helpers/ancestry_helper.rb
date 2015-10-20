@@ -42,8 +42,6 @@ module AncestryHelper
 
         if object.ancestry_depth == 0
           li_classes += options[:li_class_top]
-        elsif children.size > 0
-          li_classes += options[:li_class_first] 
         else
           li_classes += options[:li_class_children]
         end 
