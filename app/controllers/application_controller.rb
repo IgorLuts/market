@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   before_action :find_categories
-  before_action :set_cart
 
   def find_categories
     @categories_list = Category.where({:active => true}).arrange

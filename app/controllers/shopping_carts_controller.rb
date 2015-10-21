@@ -1,5 +1,5 @@
 class ShoppingCartsController < ApplicationController
-
+  before_action :set_cart
   def create
     @product = Product.find(params[:product_id])
     @shopping_cart.add(@product, @product.price)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021095748) do
+ActiveRecord::Schema.define(version: 20151021102050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,15 @@ ActiveRecord::Schema.define(version: 20151021095748) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
+  create_table "orders", force: :cascade do |t|
+    t.string   "name"
+    t.text     "adress"
+    t.string   "email"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.float    "total_price"
+  end
+
   create_table "overall_averages", force: :cascade do |t|
     t.integer  "rateable_id"
     t.string   "rateable_type"
@@ -148,7 +157,10 @@ ActiveRecord::Schema.define(version: 20151021095748) do
     t.string   "price_currency", default: "USD", null: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.integer  "order_id"
   end
+
+  add_index "shopping_cart_items", ["order_id"], name: "index_shopping_cart_items_on_order_id", using: :btree
 
   create_table "shopping_carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -175,4 +187,5 @@ ActiveRecord::Schema.define(version: 20151021095748) do
 
   add_foreign_key "product_categories", "categories"
   add_foreign_key "product_categories", "products"
+  add_foreign_key "shopping_cart_items", "orders"
 end
