@@ -17,7 +17,7 @@ ActiveAdmin.register Product do
   form do |f|
     f.inputs "Product Details" do
       f.input :title
-      f.input :description
+      f.input :description, :as => :ckeditor
       f.input :image, :as => :file
       f.input :price
       f.input :categories

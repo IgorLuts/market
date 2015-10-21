@@ -1,5 +1,5 @@
 ActiveAdmin.register Category do
-  permit_params :name
+  permit_params :name, :active
   sortable tree: true
 
   index :as => :sortable do
@@ -13,6 +13,7 @@ ActiveAdmin.register Category do
   form do |f|
     f.inputs "Category Details" do
       f.input :name
+      f.input :active
     end
     f.actions
   end

@@ -20,6 +20,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'ancestry', '~> 2.1.0'
 gem "active_admin-sortable_tree"
+gem 'active_skin'
+gem 'ckeditor'
 
 group :development, :test do
   gem 'byebug'
@@ -40,3 +42,4 @@ group :development do
 end
 
 gem 'puma'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

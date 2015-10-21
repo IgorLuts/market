@@ -8,7 +8,7 @@
         <%= number_to_currency product.price %>
       </div>
       <p>
-        <%= link_to "Купить", product, class:"btn btn-danger btn-xs " %>
+        <%= link_to "Купить", shopping_cart_path(:product_id => product), :method => 'POST', class:"btn btn-danger btn-xs " %>
         <%= link_to "Подробно", product, class:"btn btn-primary btn-xs " %>
       </p>
     </div>

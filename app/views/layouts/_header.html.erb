@@ -36,7 +36,7 @@
           <div class="col-sm-8">
             <div class="shop-menu pull-right">
               <ul class="nav navbar-nav">
-                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Корзина пуста</a></li>
+                <li><%= render'layouts/cart' %></li> 
               </ul>
             </div>
           </div>
@@ -64,11 +64,11 @@
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                   <li><a href="/">Главная</a></li>
-                  <li><a href="#">О нас</a></li>
-                  <li><a href="#">Каталог</a></li>
-                  <li><a href="#">Оплата и доставка</a></li>
-                  <li><a href="#">Новости</a></li>
-                  <li><a href="#">Контакты</a></li>
+                  <li><%= link_to "О нас", about_path %></li>
+                  <li><%= link_to "Каталог", products_path %></li>
+                  <li><%= link_to "Оплата и доставка", pay_and_delivery_path %></li>
+                  <li><%= link_to "Новости", news_path %></li>
+                  <li><%= link_to "Контакты", contact_path %></li>
                 </ul>
                 <form class="navbar-form navbar-right" role="search">
                 <div class="form-group">
