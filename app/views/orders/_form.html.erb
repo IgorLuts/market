@@ -16,15 +16,15 @@
       <%= f.text_field :name, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label "имеил" %><br>
+      <%= f.label "Email" %><br>
       <%= f.text_field :email, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label "адрес" %><br>
+      <%= f.label "Адрес" %><br>
       <%= f.text_area :adress, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.submit 'Оформить заказ', :class => 'button pull-right'%>
+      <%= f.submit 'Оформить заказ', :class => 'btn btn-primary pull-right'%>
       <%= link_to 'Продолжить покупки', root_path, class: "btn btn-success pull-left" %>
     </div>
   <% end %>

@@ -17,8 +17,8 @@
         <td><%= shopping_cart_item.item.price %></td>
         <td>
         <%= shopping_cart_item.subtotal %>
-          <%= link_to shopping_cart_item_path(:product_id => shopping_cart_item.item.id), method: :delete do%>
-            <i class="fa fa-times remove"></i>
+          <%= link_to shopping_cart_item_path(:product_id => shopping_cart_item.item.id), method: :delete do %>
+            <i class="fa fa-times remove pull-right"></i>
           <% end %>
         </td>
       </tr>

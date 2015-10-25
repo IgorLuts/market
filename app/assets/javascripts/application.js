@@ -13,11 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require flat-ui
 //= require ckeditor/init
 //= require_tree .
 
 
 $(document).ready(function(){
+    $("a[rel^='prettyPhoto']").prettyPhoto();
     var url = window.location;
     var element = $('ul.nav.sidebar a').filter(function() {
         return this.href == url || url.href.indexOf(this.href) == 0;
@@ -25,6 +27,11 @@ $(document).ready(function(){
     if (element.is('li')) {
         element.addClass('active');
     }
+    var element2 = $('ul.nav a').filter(function() {
+        var url_head = url.href.split('#', 1)[0];
+        return this.href ==url_head;
+    }).parent().addClass('active');
+
 
     var plus_sign = $('ul.nav.sidebar ul.nav.sidebar').parent();
     plus_sign.addClass('plus');

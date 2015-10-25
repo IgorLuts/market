@@ -1,15 +1,17 @@
 <% products.each do |product| %>
 <div class="col-md-4">
   <div class="thumbnail">
-    <%= image_tag product.image.thumb, class:"img-responsive" %>
+    <!-- <%= image_tag product.image.thumb, class:"img-responsive" %> -->
+    <img src="http://lorempixel.com/220/200/sports/1" alt=""> 
     <div class="caption">
       <h4><%= product.title %></h4>
       <div class="price well">
         <%= number_to_currency product.price %>
       </div>
       <p>
-        <%= link_to "Купить", shopping_cart_path(:product_id => product), :method => 'POST', class:"btn btn-danger btn-xs " %>
         <%= link_to "Подробно", product, class:"btn btn-primary btn-xs " %>
+        <%= link_to "Купить", shopping_cart_path(:product_id => product),
+         :method => 'POST', class:"btn btn-success btn-xs " %>
       </p>
     </div>
   </div>

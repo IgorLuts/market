@@ -1,20 +1,50 @@
 <div class="row">
     <div class="col-md-6">
-      <div class="well photo">
-          <%= image_tag @product.image.preview, class:"img-responsive"  %>
-      </div>           
+      <div class="well product_photos">
+       <div class="view-product">
+          <!-- <%= image_tag @product.image.preview, class:"img-responsive"  %> -->
+          
+          <a href="http://lorempixel.com/1000/1000/sports/1" rel="prettyPhoto[gallery1]"><img class="img-responsive" src="http://lorempixel.com/400/400/sports/1" alt=""></a>
+      </div>
+      <div class="gallery">
+          <a href="http://lorempixel.com/1000/1000/sports/1" rel="prettyPhoto[gallery1]"><img src="http://lorempixel.com/60/60/sports/1" width="60" height="60"  /></a>
+          <a href="http://lorempixel.com/1000/1000/sports/2" rel="prettyPhoto[gallery1]"><img src="http://lorempixel.com/60/60/sports/1" width="60" height="60"  /></a>
+          <a href="http://lorempixel.com/1000/1000/sports/3" rel="prettyPhoto[gallery1]"><img src="http://lorempixel.com/60/60/sports/1" width="60" height="60"  /></a>
+          <a href="http://lorempixel.com/1000/1000/sports/4" rel="prettyPhoto[gallery1]"><img src="http://lorempixel.com/60/60/sports/1" width="60" height="60" /></a>
+      </div> 
+      </div>          
     </div>
     
     <div class="col-md-6">
       <h1><%= @product.title %></h1>
-      <p><%= number_to_currency @product.price %> </p> 
       <%= rating_for @product, "product" %>
-      <p>
-        <% @product.categories.each do |category|  %>
-          <%= category.name %>
-        <% end %>
-      </p>
+      <div class="present">
+        В наличии на складе
+      </div>
+      <p class="price">Цена: <%= number_to_currency @product.price %></p>
+      <%= link_to "Купить", shopping_cart_path(:product_id => @product),
+         :method => 'POST', class:"btn btn-success pull-left" %>
+    </div>
+</div>
+
+<div class="row">
+  <div class="product_tab">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Описание</a></li>
+    <li role="presentation"><a href="#review" aria-controls="review" role="tab" data-toggle="tab">Отзывы</a></li>
+    <li role="presentation"><a href="#recent" aria-controls="recent" role="tab" data-toggle="tab">Похожие товары</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="description">
       <p><%= @product.description %></p>
     </div>
+    <div role="tabpanel" class="tab-pane" id="review">...</div>
+    <div role="tabpanel" class="tab-pane" id="recent">...</div>
+  </div>
+
+</div>
 </div>
 
