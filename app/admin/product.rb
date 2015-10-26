@@ -1,6 +1,6 @@
 ActiveAdmin.register Product do
 
-  permit_params :title, :description, :image, :price, category_ids: []
+  permit_params :title, :description, :image, :price, category_ids: [], tag_ids: []
 
   index do
     selectable_column
@@ -21,6 +21,7 @@ ActiveAdmin.register Product do
       f.input :image, :as => :file
       f.input :price
       f.input :categories
+      f.input :tags
     end
     f.actions
   end
