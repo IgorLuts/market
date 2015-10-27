@@ -17,25 +17,17 @@
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.form.cktext_area :description %>
+    <%= f.cktext_area :description %>
   </div>
   <div class="field">
-    <%= f.label :image %><br>
-    <%= f.text_field :image %>
+    <%= f.label :gallery %><br>
+    <%= f.file_field :gallery, multiple: true %>
   </div>
   <div class="field">
     <%= f.label :price %><br>
     <%= f.text_field :price %>
   </div>
   <div class="field">
-
-  <% Category.all.each do |category| %>
-    <div class="checkbox">
-      <label>
-        <%= check_box_tag 'product[category_ids][]', category.id %> <%= category.name %>
-      </label>
-    </div> 
-    <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

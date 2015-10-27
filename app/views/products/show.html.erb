@@ -2,9 +2,7 @@
     <div class="col-md-6">
       <div class="well product_photos">
        <div class="view-product">
-          <!-- <%= image_tag @product.image.preview, class:"img-responsive"  %> -->
-          
-          <a href="http://lorempixel.com/1000/1000/sports/1" rel="prettyPhoto[gallery1]"><img class="img-responsive" src="http://lorempixel.com/400/400/sports/1" alt=""></a>
+         <%=link_to image_tag(@product.image.preview), @product.image.url, rel: "prettyPhoto[gallery1]"  %>
       </div>
       <div class="gallery">
           <a href="http://lorempixel.com/1000/1000/sports/1" rel="prettyPhoto[gallery1]"><img src="http://lorempixel.com/60/60/sports/1" width="60" height="60"  /></a>
@@ -23,7 +21,14 @@
       </div>
       <p class="price">Цена: <%= number_to_currency @product.price %></p>
       <%= link_to "Купить", shopping_cart_path(:product_id => @product),
-         :method => 'POST', class:"btn btn-success pull-left" %>
+         :method => 'POST', class:"btn btn-success" %>
+      <div class="tagsinput">
+        <p>Метки:</p>
+        <% @product.tags.each do |tag| %>
+          <span class="tag label label-info"><%= tag.name %></span> 
+        <% end %>
+      </div>
+     <%= link_to 'Edit', edit_product_path(@product) %>
     </div>
 </div>
 
@@ -39,7 +44,7 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="description">
-      <p><%= @product.description %></p>
+      <%= sanitize @product.description %>
     </div>
     <div role="tabpanel" class="tab-pane" id="review">...</div>
     <div role="tabpanel" class="tab-pane" id="recent">...</div>
