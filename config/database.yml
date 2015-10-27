@@ -6,8 +6,8 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
   host: localhost
-  username: postgres
-  password: dpdQWL34FG
+  username: store
+  password: 2580gott
 
 development:
   <<: *default
