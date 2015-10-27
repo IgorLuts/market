@@ -7,7 +7,7 @@ default: &default
   pool: 5
   host: localhost
   username: store
-  password: 2580gott
+  password: dpdQWL34FG
 
 development:
   <<: *default
