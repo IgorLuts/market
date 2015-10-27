@@ -1,15 +1,14 @@
 <div class="row">
     <div class="col-md-6">
       <div class="well product_photos">
-       <div class="view-product">
-         <%=link_to image_tag(@product.image.preview), @product.image.url, rel: "prettyPhoto[gallery1]"  %>
-      </div>
-      <div class="gallery">
-          <a href="http://lorempixel.com/1000/1000/sports/1" rel="prettyPhoto[gallery1]"><img src="http://lorempixel.com/60/60/sports/1" width="60" height="60"  /></a>
-          <a href="http://lorempixel.com/1000/1000/sports/2" rel="prettyPhoto[gallery1]"><img src="http://lorempixel.com/60/60/sports/1" width="60" height="60"  /></a>
-          <a href="http://lorempixel.com/1000/1000/sports/3" rel="prettyPhoto[gallery1]"><img src="http://lorempixel.com/60/60/sports/1" width="60" height="60"  /></a>
-          <a href="http://lorempixel.com/1000/1000/sports/4" rel="prettyPhoto[gallery1]"><img src="http://lorempixel.com/60/60/sports/1" width="60" height="60" /></a>
-      </div> 
+         <div class="view-product">
+           <%=link_to image_tag(@product.image.preview), @product.image.url, rel: "prettyPhoto[gallery1]"  %>
+        </div>
+        <div class="gallery">
+        <% @product.gallery.each do |image| %>
+           <%=link_to image_tag(image.thumb), image.url, rel: "prettyPhoto[gallery1]"  %>
+        <% end %>
+        </div> 
       </div>          
     </div>
     
@@ -28,7 +27,6 @@
           <span class="tag label label-info"><%= tag.name %></span> 
         <% end %>
       </div>
-     <%= link_to 'Edit', edit_product_path(@product) %>
     </div>
 </div>
 

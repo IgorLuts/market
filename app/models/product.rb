@@ -5,6 +5,6 @@ class Product < ActiveRecord::Base
   has_many :tags, through: :product_tags
 
   mount_uploader :image, ImageUploader
-  mount_uploader :gallery, GalleryUploader
+  mount_uploaders :gallery, GalleryUploader
   ratyrate_rateable 'product'
 end

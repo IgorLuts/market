@@ -16,7 +16,7 @@ gem "font-awesome-rails"
 gem 'ratyrate'
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
-gem 'carrierwave'
+gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'ancestry', '~> 2.1.0'
 gem "active_admin-sortable_tree"

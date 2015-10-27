@@ -17,6 +17,16 @@ GIT
       sass-rails
 
 GIT
+  remote: git://github.com/carrierwaveuploader/carrierwave.git
+  revision: 49fdad1ec6ca9bb0883b6e193ea64e036e7b48a0
+  specs:
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
+
+GIT
   remote: git://github.com/wingrunr21/flat-ui-sass.git
   revision: 97b99ebd00a73c17b55cfb537722aede93cc7e49
   specs:
@@ -110,11 +120,6 @@ GEM
     capistrano3-puma (1.2.1)
       capistrano (~> 3.0)
       puma (>= 2.6)
-    carrierwave (0.10.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
-      mime-types (>= 1.16)
     ckeditor (4.1.4)
       cocaine
       orm_adapter (~> 0.5.0)
@@ -298,7 +303,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   capistrano3-puma
-  carrierwave
+  carrierwave!
   ckeditor
   coffee-rails (~> 4.1.0)
   devise
