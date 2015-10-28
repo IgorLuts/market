@@ -85,10 +85,10 @@
                                     <%= link_to "Контакты", contact_path %>
                                 </li>
                             </ul>
-                            <form class="navbar-form navbar-right" action="#" role="search">
+                            <form class="navbar-form navbar-right" action="/products" role="search">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input class="form-control" id="navbarInput-02" type="search" placeholder="Поиск">
+                                        <input class="form-control" id="navbarInput-02" type="search" value='<%= params[:keyword] %>' name='keyword' placeholder="Поиск">
                                         <span class="input-group-btn">
                                                 <button type="submit" class="btn"><span class="fui-search"></span></button>
                                         </span>

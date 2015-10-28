@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :set_cart
+  before_action :find_categories
   # GET /orders
   # GET /orders.json
   def index

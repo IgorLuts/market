@@ -23,6 +23,7 @@ gem "active_admin-sortable_tree"
 gem 'active_skin'
 gem 'ckeditor'
 
+
 group :development, :test do
   gem 'byebug'
 end

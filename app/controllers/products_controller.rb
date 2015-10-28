@@ -1,14 +1,14 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :set_cart
-
-  def index
-    @products = Product.all
+  before_action :find_categories
+  def index   
+    @products = Product.searching(params[:keyword])
   end
 
 
   def show
-    @similar = Product.similar(@product)
+    @similar = Product.similar(@product).all_except(@product).limit(3)
     @comments = @product.comments
   end
 

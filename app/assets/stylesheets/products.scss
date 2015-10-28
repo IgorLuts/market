@@ -19,9 +19,7 @@
   margin-right: 15px;
   padding-bottom: 10px;
   overflow: hidden;
-  p{
-    padding: 15px;
-  }
+
   ul{
     background: $brand-primary;
     border-bottom: 1px solid #FE980F;
@@ -45,6 +43,10 @@
       color:#fff;
     }
   }
+}
+
+.tab-content {
+    padding: 15px;
 }
 
 .nav-tabs  li.active  a, .nav-tabs  li.active  a:hover, .nav-tabs  li.active  a:focus {

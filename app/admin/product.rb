@@ -10,9 +10,7 @@ ActiveAdmin.register Product do
     column :created_at
     actions
   end
-  show do
-    
-  end
+
   filter :categories
   filter :price
 

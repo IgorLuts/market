@@ -1,5 +1,9 @@
 <div class="row">
-    <h2 class="title text-center" >Последние поступления</h1>
+  <% if params[:keyword] %>
+    <h2 class="title text-center" >Результаты поиска</h2>
+  <% else %>
+    <h2 class="title text-center" >Последние поступления</h2>
+  <% end %>
 </div>
   
 <div class="row product-list">
