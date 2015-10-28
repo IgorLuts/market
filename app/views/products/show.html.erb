@@ -44,8 +44,12 @@
     <div role="tabpanel" class="tab-pane active" id="description">
       <%= sanitize @product.description %>
     </div>
-    <div role="tabpanel" class="tab-pane" id="review">...</div>
-    <div role="tabpanel" class="tab-pane" id="recent">...</div>
+    <div role="tabpanel" class="tab-pane" id="review">
+      <%= render 'comments/comment' %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="recent">
+      <%= render "products/product", products: @similar %>
+    </div>
   </div>
 
 </div>

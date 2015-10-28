@@ -8,6 +8,8 @@ class ProductsController < ApplicationController
 
 
   def show
+    @similar = Product.similar(@product)
+    @comments = @product.comments
   end
 
   def new

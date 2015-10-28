@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate' 
 
   resources :categories, only: [:index, :show]
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show] do
+    resources :comments
+  end
+
   resource :shopping_cart
   resource :shopping_cart_item
   root 'products#index'
