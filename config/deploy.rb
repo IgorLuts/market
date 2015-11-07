@@ -1,95 +1,83 @@
-# Change these
-server '185.4.66.46', port: 22, roles: [:web, :app, :db], primary: true
+# encoding: utf-8
+# config valid only for Capistrano 3
+lock '3.4.0'
 
-set :repo_url,        'git@github.com:alexxty7/market.git'
-set :application,     'market'
-set :user,            'deploy'
-set :puma_threads,    [4, 16]
-set :puma_workers,    0
+# Project configuration options
+# ------------------------------
 
-# Don't change these unless you know what you're doing
-set :pty,             true
-set :use_sudo,        false
-set :stage,           :production
-set :deploy_via,      :remote_cache
-set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
-set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
-set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
-set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
-set :puma_access_log, "#{release_path}/log/puma.error.log"
-set :puma_error_log,  "#{release_path}/log/puma.access.log"
-set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa.pub) }
-set :puma_preload_app, true
-set :puma_worker_timeout, nil
-set :puma_init_active_record, true  # Change to false when not using ActiveRecord
+set :application,    'market'
+set :login,          'lexx777'
+set :user,           'hosting_lexx777'
 
-## Defaults:
-# set :scm,           :git
-# set :branch,        :master
-# set :format,        :pretty
-# set :log_level,     :debug
+set :deploy_to,      "/home/#{fetch(:user)}/projects/#{fetch(:application)}"
+set :unicorn_conf,   "/etc/unicorn/#{fetch(:application)}.#{fetch(:login)}.rb"
+set :unicorn_pid,    "/var/run/unicorn/#{fetch(:user)}/" \
+                     "#{fetch(:application)}.#{fetch(:login)}.pid"
+set :bundle_without, [:development, :test]
+set :use_sudo,       false
+
+set :repo_url,       'git@github.com:alexxty7/market.git'
+
+# Default branch is :master
+# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
+
+set :scm, :git
+set :format, :pretty
+set :pty, true
+
+# Change the verbosity level
+set :log_level, :info
+
+# Default value for :linked_files is []
+# set :linked_files, %w{config/database.yml}
+
+# Default value for linked_dirs is []
+set :linked_dirs, %w(bin log tmp/cache vendor/bundle public/system)
+
+# Default value for keep_releases is 5
 # set :keep_releases, 5
 
-## Linked Files & Directories (Default None):
-# set :linked_files, %w{config/database.yml}
-# set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+# Configure RVM
+set :rvm_ruby_version, '2.2'
 
-namespace :puma do
-  desc 'Create Directories for Puma Pids and Socket'
-  task :make_dirs do
-    on roles(:app) do
-      execute "mkdir #{shared_path}/tmp/sockets -p"
-      execute "mkdir #{shared_path}/tmp/pids -p"
-    end
-  end
+# You unlikely have to change below this line
+# -----------------------------------------------------------------------------
 
-  before :start, :make_dirs
-end
+# Configure RVM
+set :rake,            "rvm use #{fetch(:rvm_ruby_version)} do bundle exec rake"
+set :bundle_cmd,      "rvm use #{fetch(:rvm_ruby_version)} do bundle"
 
+set :assets_roles, [:web, :app]
+
+set :unicorn_start_cmd,
+    "(cd #{fetch(:deploy_to)}/current; rvm use #{fetch(:rvm_ruby_version)} " \
+    "do bundle exec unicorn_rails -Dc #{fetch(:unicorn_conf)})"
+
+# - for unicorn - #
 namespace :deploy do
-  desc "Make sure local git is in sync with remote."
-  task :check_revision do
+  desc 'Start application'
+  task :start do
     on roles(:app) do
-      unless `git rev-parse HEAD` == `git rev-parse origin/master`
-        puts "WARNING: HEAD is not the same as origin/master"
-        puts "Run `git push` to sync changes."
-        exit
-      end
+      execute unicorn_start_cmd
     end
   end
 
-  desc 'Initial Deploy'
-  task :initial do
+  desc 'Stop application'
+  task :stop do
     on roles(:app) do
-      before 'deploy:restart', 'puma:start'
-      invoke 'deploy'
+      execute "[ -f #{fetch(:unicorn_pid)} ] && " \
+              "kill -QUIT `cat #{fetch(:unicorn_pid)}`"
     end
   end
 
-  desc 'Restart application'
+  after :publishing, :restart
+
+  desc 'Restart Application'
   task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      invoke 'puma:restart'
+    on roles(:app) do
+      execute "[ -f #{fetch(:unicorn_pid)} ] && " \
+              "kill -USR2 `cat #{fetch(:unicorn_pid)}` || " \
+              "#{fetch(:unicorn_start_cmd)}"
     end
   end
-  
-  task :seed do
-   puts "\n=== Seeding Database ===\n"
-   on primary :db do
-    within current_path do
-      with rails_env: fetch(:stage) do
-        execute :rake, 'db:seed'
-      end
-    end
-   end
-  end
-
-  before :starting,     :check_revision
-  after  :finishing,    :compile_assets
-  after  :finishing,    :cleanup
-  after  :finishing,    :restart
 end
-
-# ps aux | grep puma    # Get puma pid
-# kill -s SIGUSR2 pid   # Restart puma
-# kill -s SIGTERM pid   # Stop puma

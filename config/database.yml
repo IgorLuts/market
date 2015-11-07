@@ -5,9 +5,9 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  host: localhost
-  username: store
-  password: dpdQWL34FG
+  host: postgresql6.locum.ru
+  username: lexx777_glidef56
+  password: GFEfFd3Trq
 
 development:
   <<: *default
@@ -20,4 +20,4 @@ test:
 
 production:
   <<: *default
-  database: store_prod
+  database: lexx777_glidef56
