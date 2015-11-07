@@ -6,8 +6,8 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
   host: postgresql6.locum.ru
-  username: lexx777_glidef56
-  password: GFEfFd3Trq
+  username: lexx777_market22
+  password: OZMLaf49N
 
 development:
   <<: *default
@@ -20,4 +20,4 @@ test:
 
 production:
   <<: *default
-  database: lexx777_glidef56
+  database: lexx777_market22
