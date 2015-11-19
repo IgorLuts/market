@@ -58,7 +58,7 @@ Rails.application.configure do
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: "admin@xn--80aal0a7a.xn--j1amh",
-    password: ENV["MAIL_PASSWORD"]
+    password: "dpdQWL34FG"
   }
 
   # Prepend all log lines with the following tags.
