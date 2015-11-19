@@ -48,6 +48,20 @@ Rails.application.configure do
   # when problems arise.
   config.log_level = :debug
 
+    # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => 'ладас.укр' }
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address: "smtp.yandex.ru",
+    port: 587,
+    domain: "ладас.укр",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: "admin@ладас.укр",
+    password: "dpdQWL34FG"
+  }
+
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 
