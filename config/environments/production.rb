@@ -49,17 +49,16 @@ Rails.application.configure do
   config.log_level = :debug
 
     # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'ладас.укр' }
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
     address: "smtp.yandex.ru",
     port: 587,
-    domain: "ладас.укр",
+    domain: "xn--80aal0a7a.xn--j1amh",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "admin@ладас.укр",
-    password: "dpdQWL34FG"
+    user_name: "admin@xn--80aal0a7a.xn--j1amh",
+    password: ENV["MAIL_PASSWORD"]
   }
 
   # Prepend all log lines with the following tags.
