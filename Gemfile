@@ -22,7 +22,6 @@ gem 'ancestry', '~> 2.1.0'
 gem "active_admin-sortable_tree"
 gem 'active_skin'
 gem 'ckeditor'
-gem 'figaro'
 gem 'unicorn', group: :production
 
 group :development, :test do
