@@ -24,6 +24,8 @@ gem 'active_skin'
 gem 'ckeditor'
 gem 'unicorn', group: :production
 gem 'kaminari'
+gem 'gibbon'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug'

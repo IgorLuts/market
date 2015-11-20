@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
 
+  resources :visitors, only: [:create]
   resources :articles, only: [:index, :show]
   resources :orders
   resource :shopping_cart
