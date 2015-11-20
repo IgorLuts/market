@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   
+  get 'articles/index'
+
+  get 'articles/show'
+
+  get 'news/index'
+
+  get 'news/show'
+
   mount Ckeditor::Engine => '/ckeditor'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -14,6 +22,8 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show] do
     resources :comments, only: [:create]
   end
+
+  resources :articles, only: [:index, :show]
   resources :orders
   resource :shopping_cart
   resource :shopping_cart_item
@@ -21,7 +31,6 @@ Rails.application.routes.draw do
   root 'products#index'
 
   get 'about' => 'pages#about'
-  get 'news' => 'pages#news'
   get 'pay_and_delivery' => 'pages#pay_and_delivery'
   get 'sales' => 'pages#sales'
   get 'product_return' => 'pages#product_return'

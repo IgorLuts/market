@@ -313,6 +313,7 @@ DEPENDENCIES
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   mini_magick
   pg
   rails (= 4.2.4)

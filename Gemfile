@@ -23,6 +23,7 @@ gem "active_admin-sortable_tree"
 gem 'active_skin'
 gem 'ckeditor'
 gem 'unicorn', group: :production
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug'

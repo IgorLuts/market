@@ -1,34 +1,15 @@
-Category.destroy_all
-Product.destroy_all
-Category.create!([
-  { name: "Шведские стенки"}, 
-  { name: "Шведские стенки для детей"},
-  { name: "Шведские стенки для взрослых"},
-  { name: "Шведские стенки для всей семьи"},
-  { name: "Детские спортивные уголки"},
-  { name: "Детские спортивные комплексы"},
-  { name: "Спортивные уголки 'Ранний старт'"},
-  { name: "Аксессуары"},
-  { name: "Спортивные товары для детей"},
-  { name: "Турники настенные"},
-  { name: "Брусья настенные"},
-  { name: "Маты спортивные"},
-  { name: "Штанги наборные"},
-  { name: "Наборные гантели"},
-  { name: "Блины для штанги"},
-  { name: "Грифы для штанги"}
-])
+Article.destroy_all
 
-10.times do |index|
-  Product.create!(title: Faker::Commerce.product_name,
+
+20.times do |index|
+  Article.create!(title: Faker::Book.title ,
                 description: Faker::Lorem.paragraph,
-                price: Faker::Number.decimal(2),
-                image: "http://lorempixel.com/220/200/sports/#{index}")
+                content: Faker::Lorem.paragraph(5))
 end
 
-AdminUser.create!(email: 'alexxty7@gmail.com', password: '2580gott', password_confirmation: '2580gott')
 
-p "Created #{Category.count} categories"
 
-p "Created #{Product.count} products"
+p "Created #{Article.count} articles"
+
+
 
