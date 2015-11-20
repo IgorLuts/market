@@ -34,7 +34,7 @@ Rails.application.configure do
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: "admin@xn--80aal0a7a.xn--j1amh",
-    password: "dpdQWL34FG"
+    password: Rails.application.secrets.mail_password
   }
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
