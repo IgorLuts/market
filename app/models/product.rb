@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+  extend FriendlyId
+
   has_many :product_categories, :dependent => :destroy
   has_many :categories, through: :product_categories
   has_many :product_tags
@@ -13,6 +15,13 @@ class Product < ActiveRecord::Base
   scope :searching, ->(keyword){ where('title LIKE ?', "%#{keyword.downcase}%") if keyword.present? }
   scope :similar, ->(product){
    joins(:tags).where('tags.name = ?', "#{product.tags.first.name}" ) if product.tags.present?
- }
+  }
+  validates :categories, presence: true
+  
+  friendly_id :title, use: :slugged
+
+  def normalize_friendly_id(text)
+    text.to_slug.normalize(transliterations: :russian).to_s
+  end
 
 end

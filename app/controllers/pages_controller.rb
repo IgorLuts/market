@@ -8,11 +8,6 @@ class PagesController < ApplicationController
   def pay_and_delivery
   end
 
-  def news
-  end
-
-  def contact
-  end
 
   def sales
   end

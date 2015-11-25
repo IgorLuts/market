@@ -26,6 +26,8 @@ gem 'unicorn', group: :production
 gem 'kaminari'
 gem 'gibbon'
 gem 'figaro'
+gem 'friendly_id', '~> 5.1.0' 
+gem 'babosa'
 
 group :development, :test do
   gem 'byebug'
