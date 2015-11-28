@@ -109,3 +109,32 @@
     font-weight: 700;
   }
 }
+.caption {
+  a {
+    color: #34495E;
+  }
+  a:hover {
+    color: #2c3e50;
+  }
+}
+
+.comment-author-date {
+  color: #95a5a6;
+  font-size: 12px;
+  padding-left: 15px;
+}
+
+.comments {
+  clear: both;
+  margin-top: 15px;
+
+  .p-comment {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ecf0f1;
+    
+    .review-heading {
+      margin-bottom: 15px;
+    }
+  }
+
+}

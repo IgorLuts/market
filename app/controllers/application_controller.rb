@@ -4,7 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def find_categories
-    @categories_list = Category.where({:active => true}).arrange
+    @categories = Rails.cache.fetch("global/categories", expires_in: 10.minutes) do
+      Category.where({:active => true}).arrange
+    end
   end
 
   def set_cart 

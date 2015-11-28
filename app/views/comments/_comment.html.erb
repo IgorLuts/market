@@ -24,7 +24,16 @@
       </div>
   <% end %>
 </div>
-<% @product.comments.each do |comment| %>
-  <strong><%= comment.user_name %></strong>
-  <p><%= comment.body %></p> 
-<% end %>
+<div class="comments">
+  <% @product.comments.each do |comment| %>
+  <div class="p-comment">
+   <div class="review-heading">
+    <div class="author">
+      <strong><%= comment.user_name %></strong>
+      <%= time_tag comment.created_at, class: "comment-author-date" %>
+    </div>
+  </div>
+    <p><%= comment.body %></p>  
+  </div>
+  <% end %>
+</div>
