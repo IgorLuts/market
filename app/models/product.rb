@@ -3,7 +3,7 @@ class Product < ActiveRecord::Base
 
   has_many :product_categories, :dependent => :destroy
   has_many :categories, through: :product_categories
-  has_many :product_tags
+  has_many :product_tags, dependent: :destroy
   has_many :tags, through: :product_tags
   has_many :comments, dependent: :destroy
 
@@ -16,7 +16,7 @@ class Product < ActiveRecord::Base
   scope :similar, ->(product){
    joins(:tags).where('tags.name = ?', "#{product.tags.first.name}" ) if product.tags.present?
   }
-  validates :categories, presence: true
+  validates :categories, :tags, :title, :description, :image, :price, presence: true
   
   friendly_id :title, use: :slugged
 
