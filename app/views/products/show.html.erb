@@ -21,8 +21,9 @@
       <p class="price">Цена: <%= number_to_currency @product.price %></p>
       <%= link_to "Купить", shopping_cart_path(:product_id => @product),
          :method => 'POST', class:"btn btn-success" %>
-      <div class="tagsinput">
-        <p>Метки:</p>
+      <h6>Метки:</h6>
+      <div class="bootstrap-tagsinput">
+        
         <% @product.tags.each do |tag| %>
           <span class="tag label label-info"><%= tag.name %></span> 
         <% end %>
