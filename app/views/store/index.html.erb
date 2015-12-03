@@ -1,0 +1,21 @@
+<div class="row">
+    <video class="video-js" preload="auto" poster="<%= asset_path 'ladas_promo.jpg' %>" data-setup="{}">
+      <source src="https://s3.eu-central-1.amazonaws.com/ladas/ladas_promo.mp4" type="video/mp4">
+    </video>
+</div>
+<div class="row product-title">
+    <h2 class="title text-center" >Популярные товары</h2>
+</div>
+<div class="row product-list">
+    <%= render "products/product", products: @popular_products %>
+</div>
+
+<div class="row product-title">
+    <h2 class="title text-center" >Новинки</h2>
+</div>
+<div class="row product-list">
+    <%= render "products/product", products: @novinki %>
+</div>        
+
+
+

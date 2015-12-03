@@ -10,9 +10,3 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( ckeditor/* )
-Rails.application.config.assets.precompile += %w( flat-ui/switch/* )
-Rails.application.config.assets.precompile += %w( flat-ui/tile/* )
-Rails.application.config.assets.precompile += %w( flat-ui/todo/* )
-Rails.application.config.assets.precompile += %w( flat-ui/video/* )
-Rails.application.config.assets.precompile += %w( flat-ui/login/* )
-Rails.application.config.assets.precompile += %w( flat-ui/icons/* )

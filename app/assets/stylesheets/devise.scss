@@ -1,0 +1,24 @@
+.login_form:before {
+    position: absolute;
+    right: -12px;
+    content: '';
+    height: 100%;
+    border-right: 1px solid #f0f0f0;
+}
+.login_form:after {
+    position: absolute;
+    top: 125px;
+    right: -35px;
+    font-size: 1.15385em;
+    padding: 0.33333em;
+    content: 'или';
+    background: #fff;
+}
+
+.login_form{
+  position: relative;
+  padding-right: 15px;
+}
+.reg_form{
+  padding-left: 15px;
+}

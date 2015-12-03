@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require video
 //= require flat-ui
 //= require ckeditor/init
 //= require_tree .
@@ -36,4 +37,5 @@ $(document).ready(function(){
     var plus_sign = $('ul.nav.sidebar ul.nav.sidebar').parent();
     plus_sign.addClass('plus');
 
+    videojs.options.flash.swf = "video-js.swf"
 });

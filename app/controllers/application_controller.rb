@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-
+  before_action :find_categories, :set_cart, if: :devise_controller?
+  
   def find_categories
     @categories = Rails.cache.fetch("global/categories", expires_in: 10.minutes) do
       Category.where({:active => true}).arrange

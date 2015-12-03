@@ -1,7 +1,11 @@
 //
 // Footer
 // --------------------------------------------------
-
+$brand-secondary: #1abc9c;
+$brand-primary: #34495e;
+$inverse: white;
+$asbestos: #7f8c8d;
+$silver: #bdc3c7;
 footer {
   background-color: mix($brand-primary, $inverse, 9%);
   color: mix($brand-primary, $inverse, 44%);
