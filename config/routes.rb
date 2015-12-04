@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :visitors, only: [:create]
   resources :articles, only: [:index, :show]
   resources :orders, only: [:new, :create]
-
+  resources :users, :only => [:show]
   resource :shopping_cart, only: [:show, :destroy]
   resource :shopping_cart_items, only: [:create, :destroy]
   resources :contacts, only: [:new, :create]

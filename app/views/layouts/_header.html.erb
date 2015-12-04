@@ -25,15 +25,20 @@
                         <li>Здравствуйте, </li>
                         <li>                                
                             <% if user_signed_in? %>
-                                <%= link_to destroy_user_session_path, method: :delete do %>
+                                <%= link_to current_user do %>
                                     <i class="fa fa-user"></i>
-                                    Выход
+                                    <%= current_user.email %>
                                 <% end %>
                             <% else %>
                                 <%= link_to new_user_session_path do %>
                                     <i class="fa fa-user"></i>
                                     Войти в личный кабинет
                                 <% end %>
+                            <% end %>
+                        </li>
+                        <li>
+                            <% if user_signed_in? %>
+                                <%= link_to "Выход", destroy_user_session_path, method: :delete %>
                             <% end %>
                         </li>
                     </ul>
