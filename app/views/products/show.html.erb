@@ -18,12 +18,17 @@
       <div class="present">
         В наличии на складе
       </div>
-      <p class="price">Цена: <%= number_to_currency @product.price %></p>
-      <%= link_to "Купить", shopping_cart_path(:product_id => @product),
-         :method => 'POST', class:"btn btn-success" %>
+      <div class="price"><strong>Цена: </strong><%= number_to_currency @product.price %></div>
+
+      <%= form_for ShoppingCartItem.new, :url => shopping_cart_items_path(:product_id => @product), :html => { :class => 'form-inline cart_item_form'} do |f| %>
+        <div class="form-group">
+          <%= f.label :quantity, "Количество: "%>
+          <%= f.number_field :quantity, value: 1, class: 'form-control' %>
+        </div>
+        <%= f.submit "Купить", class:"btn btn-success" %>
+      <% end %>
       <h6>Метки:</h6>
-      <div class="bootstrap-tagsinput">
-        
+      <div class="bootstrap-tagsinput">    
         <% @product.tags.each do |tag| %>
           <span class="tag label label-info"><%= tag.name %></span> 
         <% end %>

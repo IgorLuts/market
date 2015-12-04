@@ -17,7 +17,7 @@
         <td><%= shopping_cart_item.item.price %></td>
         <td>
         <%= shopping_cart_item.subtotal %>
-          <%= link_to shopping_cart_item_path(:product_id => shopping_cart_item.item.id), method: :delete do %>
+          <%= link_to shopping_cart_items_path(:product_id => shopping_cart_item.item.id), method: :delete do %>
             <i class="fa fa-times remove pull-right"></i>
           <% end %>
         </td>
@@ -33,5 +33,5 @@
   </table>
   </div>
  <%= link_to 'Очистить корзину', @shopping_cart, method: :delete, class: "btn btn-success"%> 
- <%= link_to 'Продолжить покупки', root_path, class: "btn btn-success" %>
+ <%= link_to 'Продолжить покупки', :back, class: "btn btn-success" %>
  <%= link_to 'Оформить заказ', new_order_path, class: "btn btn-primary pull-right" %>

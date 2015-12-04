@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   resources :articles, only: [:index, :show]
   resources :orders, only: [:new, :create]
 
-  resource :shopping_cart, only: [:create, :show, :destroy]
-  resource :shopping_cart_item, only: [:destroy]
+  resource :shopping_cart, only: [:show, :destroy]
+  resource :shopping_cart_items, only: [:create, :destroy]
   resources :contacts, only: [:new, :create]
 
   get 'o-nas' => 'pages#about', as: 'about'
