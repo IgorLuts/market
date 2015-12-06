@@ -1,6 +1,6 @@
 ActiveAdmin.register Order do
   menu :priority => 4
-  actions :index, :show
+ 
 
   filter :total_price
   filter :created_at
@@ -8,8 +8,12 @@ ActiveAdmin.register Order do
   index do
     column("Order", :sortable => :id) {|order| link_to "##{order.id} ", admin_order_path(order) }
     column("Date", :created_at)
-    column("Customer")                {|order|  order.email }
+    column("Customer")                {|order|  order.name }
+    column("Customer email")          {|order|  order.email }
+    column("Customer phone")          {|order|  order.phone }
+    column("Delivery address")        {|order|  order.adress }
     column("Total")                   {|order| number_to_currency order.total_price }
+    actions
   end
 
   show do

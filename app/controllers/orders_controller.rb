@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   before_action :set_cart
   before_action :find_categories
 
-
   def new
     if @shopping_cart.empty?
       redirect_to root_path, notice: "Ваша корзина пустая"
@@ -20,6 +19,7 @@ class OrdersController < ApplicationController
     
     respond_to do |format|
       if @order.save
+        UserMailer.order_notification(@order).deliver_later
         @shopping_cart.clear
         format.html { redirect_to root_path, notice: 'Ваш заказ был успешно оформен.' }
         format.json { render :show, status: :created, location: @order }
@@ -35,6 +35,6 @@ class OrdersController < ApplicationController
   private
 
     def order_params
-      params.require(:order).permit(:name, :adress, :email)
+      params.require(:order).permit(:name, :adress, :email, :phone)
     end
 end
