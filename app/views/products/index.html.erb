@@ -1,5 +1,5 @@
 <div class="row">
-  <% if params[:keyword] %>
+  <% if params[:q] %>
     <h2 class="title text-center" >Результаты поиска</h2>
   <% else %>
     <h2 class="title text-center" >Каталог товаров</h2>
@@ -10,5 +10,5 @@
     <%= render "products/product", products: @products %>
 </div>      
 
-
+<%= paginate @products %>
 

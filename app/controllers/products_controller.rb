@@ -2,8 +2,9 @@ class ProductsController < ApplicationController
   before_action :set_cart
   before_action :find_categories
 
-  def index   
-    @products = Product.includes(:categories).searching(params[:keyword])
+  def index
+    @q = Product.ransack(params[:q])
+    @products = @q.result.includes(:categories).page(params[:page])
   end
 
 
