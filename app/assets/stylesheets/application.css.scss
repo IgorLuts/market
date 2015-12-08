@@ -51,7 +51,9 @@ body {
 p {
   font-size: $font-size-base !important;
 }
-
+.container {
+  min-width: 1200px;
+}
 @import "fonts";
 @import "bootstrap-sprockets";
 @import "bootstrap";
