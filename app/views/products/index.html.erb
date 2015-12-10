@@ -1,12 +1,8 @@
-<div class="row">
-  <% if params[:q] %>
-    <h2 class="title text-center" >Результаты поиска</h2>
-  <% else %>
-    <h2 class="title text-center" >Каталог товаров</h2>
-  <% end %>
+<div class="box">
+    <h1>Каталог товаров</h1>
 </div>
   
-<div class="row product-list">
+<div class="row products">
     <%= render "products/product", products: @products %>
 </div>      
 

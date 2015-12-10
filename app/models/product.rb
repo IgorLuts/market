@@ -12,13 +12,14 @@ class Product < ActiveRecord::Base
   ratyrate_rateable 'product'
 
   scope :all_except, ->(product) { where.not(id: product.id) }
-  scope :searching, ->(keyword){ where('title LIKE ?', "%#{keyword.downcase}%") if keyword.present? }
   scope :similar, ->(product){
    joins(:tags).where('tags.name = ?', "#{product.tags.first.name}" ) if product.tags.present?
   }
   validates :categories, :tags, :title, :description, :image, :price, presence: true
   
   friendly_id :title, use: :slugged
+
+  paginates_per 15
 
   def normalize_friendly_id(text)
     text.to_slug.normalize(transliterations: :russian).to_s

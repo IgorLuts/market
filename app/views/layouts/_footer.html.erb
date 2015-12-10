@@ -1,79 +1,93 @@
-<div class="footer-widget">
+<div id="footer" data-animate="fadeInUp">
     <div class="container">
         <div class="row">
-            <div class="col-xs-2">
-                <div class="single-widget">
-                    <h3>Информация</h3>
-                    <ul class="nav">
-                        <li>
-                            <%= link_to "О компании", about_path %>
-                        </li>
-                        <li>
-                            <%= link_to "Оплата и доставка", pay_and_delivery_path %>
-                        </li>
-                        <li>
-                            <%= link_to "Акции", sales_path %>
-                        </li>
-                    </ul>
-                </div>
+            <div class="col-md-3 col-sm-6">
+                <h4>Pages</h4>
+                <ul>
+                    <li><a href="text.html">About us</a>
+                    </li>
+                    <li><a href="text.html">Terms and conditions</a>
+                    </li>
+                    <li><a href="faq.html">FAQ</a>
+                    </li>
+                    <li><a href="contact.html">Contact us</a>
+                    </li>
+                </ul>
+                <hr>
+                <h4>User section</h4>
+                <ul>
+                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+                    </li>
+                    <li><a href="register.html">Regiter</a>
+                    </li>
+                </ul>
+                <hr class="hidden-md hidden-lg hidden-sm">
             </div>
-            <div class="col-xs-2">
-                <div class="single-widget">
-                    <h3>Служба поддержки</h3>
-                    <ul class="nav">
-                        <li>
-                            <%= link_to "Связаться с нам", new_contact_path %>
-                        </li>
-                        <li>
-                            <%= link_to "Возврат товара", product_return_path %>
-                        </li>
-                    </ul>
-                </div>
+            <!-- /.col-md-3 -->
+            <div class="col-md-3 col-sm-6">
+                <h4>Top categories</h4>
+                <h5>Men</h5>
+                <ul>
+                    <li><a href="category.html">T-shirts</a>
+                    </li>
+                    <li><a href="category.html">Shirts</a>
+                    </li>
+                    <li><a href="category.html">Accessories</a>
+                    </li>
+                </ul>
+                <h5>Ladies</h5>
+                <ul>
+                    <li><a href="category.html">T-shirts</a>
+                    </li>
+                    <li><a href="category.html">Skirts</a>
+                    </li>
+                    <li><a href="category.html">Pants</a>
+                    </li>
+                    <li><a href="category.html">Accessories</a>
+                    </li>
+                </ul>
+                <hr class="hidden-md hidden-lg">
             </div>
-            <div class="col-xs-2">
-                <div class="single-widget">
-                    <h3>Личная информация</h3>
-                    <ul class="nav">
-                        <li><a href="#">Личный Кабинет</a></li>
-                        <li><a href="#">История заказов</a></li>
-                        <li><a href="#">Рассылка</a></li>
-                    </ul>
-                </div>
+            <!-- /.col-md-3 -->
+            <div class="col-md-3 col-sm-6">
+                <h4>Where to find us</h4>
+                <p><strong>Obaju Ltd.</strong>
+                    <br>13/25 New Avenue
+                    <br>New Heaven
+                    <br>45Y 73J
+                    <br>England
+                    <br>
+                    <strong>Great Britain</strong>
+                </p>
+                <a href="contact.html">Go to contact page</a>
+                <hr class="hidden-md hidden-lg">
             </div>
-            <div class="col-xs-2">
-                <div class="single-widget">
-                    <h3>Номера телефонов</h3>
-                    <ul class="nav">
-                        <li><a href="#"> +3 8(091) 800 22 16</a></li>
-                        <li><a href="#"> +3 8(095) 549 97 83</a></li>
-                        <li><a href="#"> +3 8(093) 374 62 23</a></li>
-                    </ul>
-                </div>
+            <!-- /.col-md-3 -->
+            <div class="col-md-3 col-sm-6">
+                <h4>Get the news</h4>
+                <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                <form>
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">Subscribe!</button>
+                        </span>
+                    </div>
+                    <!-- /input-group -->
+                </form>
+                <hr>
+                <h4>Stay in touch</h4>
+                <p class="social">
+                    <a href="#" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="twitter external" data-animate-hover="shake"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="instagram external" data-animate-hover="shake"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="gplus external" data-animate-hover="shake"><i class="fa fa-google-plus"></i></a>
+                    <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-envelope"></i></a>
+                </p>
             </div>
-            <div class="col-xs-3 col-xs-offset-1">
-                <div class="single-widget">
-                    <h3>Подписка на новости</h3>
-<!--                     <form action="#" class="searchform">
-                        <input type="text" placeholder="Введите ваш имеил" />
-                        <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-                        <p>Подпишитесь на новости и непропустите каждое наше акционное предложение.</p>
-                    </form> -->
-                    <%= form_for(Visitor.new, :html => { :class => 'searchform'}) do|f| %>
-                        <%= f.text_field :email, label: false, :placeholder => 'Введите ваш имеил' %>
-                        <%= f.button :submit, :class => "btn btn-default"  do %>
-                            <i class="fa fa-arrow-circle-o-right"></i>
-                        <% end %>
-                        <p>Подпишитесь на новости и непропустите каждое наше акционное предложение.</p>
-                    <% end %>
-                </div>
-            </div>
+            <!-- /.col-md-3 -->
         </div>
+        <!-- /.row -->
     </div>
-</div>
-<div class="footer-bottom">
-    <div class="container">
-        <div class="row">
-            <p class="pull-left">Copyright © 2015 glidefit.com.ua</p>
-        </div>
-    </div>
+    <!-- /.container -->
 </div>
