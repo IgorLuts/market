@@ -27,7 +27,7 @@
           <% @product.gallery.each do |image| %>
             <div class="col-xs-4">
               <%=link_to image.url, rel: "prettyPhoto[gallery1]", class: "thumb"  do %>
-                <%= image_tag image.url, class: "img-responsive" %>
+                <%= image_tag image.thumb, class: "img-responsive" %>
               <% end %>
             </div>
           <% end %>
