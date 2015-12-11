@@ -1,5 +1,9 @@
 <div class="box">
+  <% if params[:q] %>
+    <h1>Результаты поиска</h1>
+  <% else %>
     <h1>Каталог товаров</h1>
+  <% end %>
 </div>
   
 <div class="row products">
