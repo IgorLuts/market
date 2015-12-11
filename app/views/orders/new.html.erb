@@ -1,5 +1,5 @@
-<h1>Оформление заказа</h1>
-    <div class="box" id="checkout">
+<div class="box" id="checkout">
+    <h1>Оформление заказа</h1>
     <%= form_for(@order, :html => { :role => 'form'}) do |f| %>
         <% if @order.errors.any? %>
           <div id="error">
