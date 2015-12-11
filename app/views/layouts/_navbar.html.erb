@@ -14,9 +14,14 @@
                     <span class="sr-only">Toggle search</span>
                     <i class="fa fa-search"></i>
                 </button>
-                <a class="btn btn-default navbar-toggle" href="basket.html">
-                    <i class="fa fa-shopping-cart"></i> <span class="hidden-xs">3 items in cart</span>
-                </a>
+                <%= link_to shopping_cart_path, class: "btn btn-default navbar-toggle" do %>
+                  <i class="fa fa-shopping-cart"></i>
+                  <% if @shopping_cart and !@shopping_cart.empty? %>
+                    <span class="hidden-xs"><%=number_to_currency(@shopping_cart.total) %></span>
+                  <% else %>
+                    <span class="hidden-xs">Корзина пуста</span>
+                  <% end %>
+                <% end %>
             </div>
         </div>
         <!--/.navbar-header -->
