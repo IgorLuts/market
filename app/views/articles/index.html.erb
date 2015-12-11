@@ -1,13 +1,15 @@
-<% @articles.each do |article| %>
-<div class="blog-post">
-  <div class="blog-post-title">
-   <h2><%= article.title %></h2> 
-  </div>
-  <div class="description">
-    <%= sanitize article.description %>
-   </div>
-  <%= link_to "Подробнее", article_path(article), class: "btn btn-info btn-sm" %>
+<div id="blog-listing">
+  <% @articles.each do |article| %>
+    <div class="post">
+        <h2><%= link_to article.title, article_path(article) %></h2> 
+        <p class="intro">
+            <%= sanitize article.description %>
+        </p>
+        <p class="read-more">
+            <%= link_to "Подробнее", article_path(article), class: "btn btn-primary" %>
+        </p>
+    </div>
+  <% end %>
 </div>
-<% end %>
 
 <%= paginate @articles %>
