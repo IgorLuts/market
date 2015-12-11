@@ -14,7 +14,7 @@
                 </li>
                 <li>
                     <% if user_signed_in? %>
-                        <%= link_to current_user do %>
+                        <%= link_to root_path do %>
                             <i class="fa fa-user"></i>
                             <%= current_user.email %>
                         <% end %>
