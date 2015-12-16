@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  post '/rate' => 'rater#create', :as => 'rate' 
   post '/products/:product_id/comments' => 'comments#create', as: 'product_comments'
   get '/katalog' => 'products#index', as: 'products'
   get '/c/:category_id/p/:id' => 'products#show', as: 'category_product'
@@ -25,6 +24,6 @@ Rails.application.routes.draw do
 
   get 'o-nas' => 'pages#about', as: 'about'
   get 'oplata-i-dostavka' => 'pages#pay_and_delivery', as: 'pay_and_delivery'
-  get 'skidki' => 'pages#sales', as: 'sales'
-  get 'vozvrat-tovara' => 'pages#product_return', as: 'product_return'
+  # get 'skidki' => 'pages#sales', as: 'sales'
+  # get 'vozvrat-tovara' => 'pages#product_return', as: 'product_return'
 end

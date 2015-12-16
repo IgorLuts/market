@@ -11,15 +11,12 @@
  * file per style scope.
  *
  *= require font-awesome
- *= require bootstrap.min
- *= require animate.min
- *= require owl.carousel
- *= require owl.theme
- *= require style.default
- *= require custom.css
  *= require_self
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "style.default";
 @import "prettyPhoto";
 
 .cart_item_form{
@@ -39,6 +36,7 @@
     width: 141px;
   }
 }
+
 .box.product_tab {
   overflow: hidden;
   .tab-pane{

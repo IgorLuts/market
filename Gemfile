@@ -13,7 +13,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'acts_as_shopping_cart'
 gem "font-awesome-rails"
-gem 'ratyrate'
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
@@ -30,6 +29,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'babosa'
 gem 'newrelic_rpm'
 gem 'ransack'
+gem "fog-aws"
 
 group :development, :test do
   gem 'byebug'

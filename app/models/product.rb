@@ -9,7 +9,6 @@ class Product < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
   mount_uploaders :gallery, GalleryUploader
-  ratyrate_rateable 'product'
 
   scope :all_except, ->(product) { where.not(id: product.id) }
   scope :similar, ->(product){

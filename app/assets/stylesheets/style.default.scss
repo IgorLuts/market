@@ -302,7 +302,7 @@ h1 {
 }
 .ribbon {
   position: absolute;
-  top: 50px;
+  top: 0;
   padding-left: 51px;
   z-index: 20;
 }
@@ -313,7 +313,7 @@ h1 {
 }
 .ribbon .theribbon {
   position: relative;
-  width: 80px;
+  width: 90px;
   padding: 6px 20px 6px 20px;
   margin: 30px 10px 10px -71px;
   color: #fff;
@@ -338,7 +338,7 @@ h1 {
   top: 0;
 }
 .ribbon.new {
-  top: 50px;
+  top: 0;
 }
 .ribbon.new .theribbon {
   background-color: #5bc0de;
@@ -348,7 +348,7 @@ h1 {
   border-color: #2390b0 #2390b0 transparent transparent;
 }
 .ribbon.gift {
-  top: 100px;
+  top: 0;
 }
 .ribbon.gift .theribbon {
   background-color: #5cb85c;
