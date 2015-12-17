@@ -16,7 +16,7 @@
                     <% if user_signed_in? %>
                         <%= link_to root_path do %>
                             <i class="fa fa-user"></i>
-                            <%= current_user.email %>
+                            <%= link_to current_user.email, orders_path %>
                         <% end %>
                     <% else %>
                         <%= link_to 'Регистрация', new_user_session_path %>

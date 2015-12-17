@@ -30,6 +30,7 @@ gem 'babosa'
 gem 'newrelic_rpm'
 gem 'ransack'
 gem "fog-aws"
+gem 'cancancan'
 
 group :development, :test do
   gem 'byebug'

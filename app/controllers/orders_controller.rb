@@ -1,6 +1,16 @@
 class OrdersController < ApplicationController
   before_action :set_cart
   before_action :find_categories
+  before_action :load_order, only: :show
+  
+  authorize_resource only: [:index, :show]
+
+  def index
+    @orders = current_user.orders
+  end
+
+  def show
+  end
 
   def new
     if @shopping_cart.empty?
@@ -11,9 +21,8 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
-
   def create
-    @order = Order.new(order_params)
+    @order = Order.new(order_params.merge(user: current_user))
     @order.add_line_items_from_cart(@shopping_cart)
     @order.add_total_price(@shopping_cart)
     
@@ -30,9 +39,10 @@ class OrdersController < ApplicationController
     end
   end
 
-
-
   private
+    def load_order
+      @order = Order.find(params[:id])
+    end
 
     def order_params
       params.require(:order).permit(:name, :adress, :email, :phone)

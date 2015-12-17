@@ -38,7 +38,7 @@ ActiveAdmin.register Product do
     column('price', humanize_name: false)
     column('currencyId', humanize_name: false) { "UAH" }
     column('category', humanize_name: false)   { |product| product.categories.first.name }
-    column('picture', humanize_name: false)    { |product| product.image.url }
+    column('picture', humanize_name: false)    { |product| "ладас.укр" + product.image.url }
     column('name', humanize_name: false)        { |product| product.title }
   end
 end
