@@ -2,7 +2,7 @@
     <%= render 'users/user_menu' %>
 <% end %>
 
-<div id="basket">
+<div id="customer-order">
 <div class="box">
     <h1>Заказ #<%= @order.id %></h1>
     <div class="table-responsive">
@@ -40,13 +40,19 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <th colspan="4">Итого:</th>
+                    <th colspan="4">Всего:</th>
                     <th>
                         <%= number_to_currency @order.total_price %>
                     </th>
                 </tr>
             </tfoot>
         </table>
-    </div>    
+    </div>
+    <div class="row addresses">
+        <div class="col-md-6 col-md-offset-6">
+            <h2>Адрес доставки</h2>
+            <p><%= @order.adress %></p>
+        </div>
+    </div>
 </div>
 </div>

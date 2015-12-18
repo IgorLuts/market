@@ -31,6 +31,7 @@ gem 'newrelic_rpm'
 gem 'ransack'
 gem "fog-aws"
 gem 'cancancan'
+gem 'sitemap_generator'
 
 group :development, :test do
   gem 'byebug'
@@ -42,7 +43,7 @@ group :development do
   gem 'spring'
   gem 'better_errors'
   gem 'faker'
-  
+
   gem 'capistrano',         require: false
   gem 'capistrano-rvm',     require: false
   gem 'capistrano-rails',   require: false

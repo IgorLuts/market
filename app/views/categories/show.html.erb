@@ -6,7 +6,7 @@
     <% @category.products.each do |product| %>
       <% cache product do %>
       <div class="col-md-4 col-sm-6">
-          <div class="product">
+          <div class="product" itemscope itemtype="http://schema.org/Product">
               <%= link_to category_product_path(@category, product) do %>
                   <%= image_tag product.image.preview, class:"img-responsive" %>
               <% end %>

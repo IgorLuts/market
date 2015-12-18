@@ -20,7 +20,7 @@ $(document).ready(function(){
     $("a[rel^='prettyPhoto']").prettyPhoto();
 
     var url = window.location;
-    var element = $('ul.nav.category-menu a').filter(function() {
+    var element = $('ul.nav.menu_active a').filter(function() {
         return this.href == url || url.href.indexOf(this.href) == 0;
     }).addClass('active').parent().addClass('active').parent().addClass('in').parent();
     if (element.is('li')) {

@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
 
 
   def show
-    @product = Product.includes(:categories).friendly.find(params[:id])
+    @product = Product.friendly.find(params[:id])
     @similar = Product.similar(@product).all_except(@product).limit(3)
   end
 
