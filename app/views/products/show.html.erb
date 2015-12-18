@@ -39,6 +39,7 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Описание</a></li>
+      <li role="presentation"><a href="#characteristics" aria-controls="characteristics" role="tab" data-toggle="tab">Характеристики</a></li>
       <li role="presentation"><a href="#review" aria-controls="review" role="tab" data-toggle="tab">Отзывы</a></li>
       <li role="presentation"><a href="#recent" aria-controls="recent" role="tab" data-toggle="tab">Похожие товары</a></li>
     </ul>
@@ -47,6 +48,9 @@
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="description">
         <%= sanitize @product.description %>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="characteristics">
+        <%= sanitize @product.characteristics %>
       </div>
       <div role="tabpanel" class="tab-pane" id="review">
         <%= render 'comments/comment' %>
