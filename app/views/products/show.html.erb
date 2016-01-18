@@ -20,7 +20,11 @@
               <% end %>
         </div>
         <div class="ribbon new presents">
-            <div class="theribbon">Есть в наличии</div>
+            <% if @product.available %>
+              <div class="theribbon">Есть в наличии</div>
+            <% else %>
+              <div class="theribbon">Под заказ</div>
+            <% end %>
             <div class="ribbon-background"></div>
         </div>
         <div class="row" id="thumbs">

@@ -39,8 +39,9 @@ ActiveAdmin.register Product do
     column('url', humanize_name: false)        { |product| category_product_url(product.categories.first, product) }
     column('price', humanize_name: false)
     column('currencyId', humanize_name: false) { "UAH" }
-    column('category', humanize_name: false)   { |product| product.categories.first.name }
-    column('picture', humanize_name: false)    { |product| "ладас.укр" + product.image.url }
+    column('category', humanize_name: false)   { "Гимнастические снаряды и спортивные комплексы" }
+    column('picture', humanize_name: false)    { |product| "http://ladas.xyz" + product.image.url }
     column('name', humanize_name: false)        { |product| product.title }
+    column('vendor', humanize_name: false)      { "Ладас" }
   end
 end
