@@ -1,6 +1,6 @@
 ActiveAdmin.register Product do
 
-  permit_params :title, :description, :image, :price, :available, 
+  permit_params :title, :description, :image, :price, :available, :sales_info,
                 :feature, :characteristics, category_ids: [], tag_ids: [], gallery: []
 
   index do
@@ -27,6 +27,7 @@ ActiveAdmin.register Product do
       f.input :price
       f.input :categories
       f.input :available
+      f.input :sales_info
       f.input :feature, :as => :select, :collection => ["sale", "new", "gift"]
       f.input :tags
     end

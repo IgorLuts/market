@@ -10,6 +10,7 @@
     <div class="col-sm-6">
         <div class="box">
           <h1 class="text-center"><%= @product.title %></h1>
+          <p class="goToDescription"><%= @product.sales_info %></p>
           <p class="price"><%= number_to_currency @product.price %></p>
               <%= form_for ShoppingCartItem.new, :url => shopping_cart_items_path(:product_id => @product), :html => { :class => 'form-inline cart_item_form'} do |f| %>
                 <div class="form-group">
