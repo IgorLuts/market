@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   post '/products/:product_id/comments' => 'comments#create', as: 'product_comments'
   get '/katalog' => 'products#index', as: 'products'
-  get '/c/:category_id/p/:id' => 'products#show', as: 'category_product'
-  get '/c/:id' => 'categories#show', as: 'category'
+  # get '/c/:category_id/p/:id' => 'products#show', as: 'category_product'
+  # get '/c/:id' => 'categories#show', as: 'category'
 
   resources :visitors, only: [:create]
   resources :articles, only: [:index, :show]
@@ -24,6 +24,11 @@ Rails.application.routes.draw do
 
   get 'o-nas' => 'pages#about', as: 'about'
   get 'oplata-i-dostavka' => 'pages#pay_and_delivery', as: 'pay_and_delivery'
-  # get 'skidki' => 'pages#sales', as: 'sales'
-  # get 'vozvrat-tovara' => 'pages#product_return', as: 'product_return'
+
+  get "c/:id" => 'categories#show', :as => :category_short
+  get "c/:category/:id" => 'categories#show', :as => :category_long
+
+  get '/c/:category_id/p/:id' => 'products#show', as: 'category_product_short'
+  get '/c/:category/:category_id/p/:id' => 'products#show', as: 'category_product_long'
+
 end
