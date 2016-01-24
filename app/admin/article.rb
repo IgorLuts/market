@@ -17,6 +17,7 @@ ActiveAdmin.register Article do
       f.input :title
       f.input :description, :as => :ckeditor
       f.input :content, :as => :ckeditor
+      f.input :keywords
     end
     f.actions
   end

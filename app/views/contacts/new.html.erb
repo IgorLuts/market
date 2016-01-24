@@ -1,6 +1,25 @@
-<% content_for :title do %>Contact<% end %>
+<% content_for :title do %>
+  
+<% end %>
+<% content_for :description do %>
+
+<% end %>
+<% content_for :keywords do %>
+
+<% end %>
+
 <div class="box" id="contact">
-    <h1>Написать нам</h1>
+    <h1>О нас</h1>
+      <p>ТОВ фірма " Ладас", ЕГРПОУ 21940919</p>
+      <p>м.Дніпропетровськ вул.Винокурова 5, оф.401</p>
+    <h2>Номера телефонов</h2>
+    <p>Вы сможете проконсультироваться с менеджерами или заказать товар по следующим номерам:</p>
+    <ul>
+      <li>+3 8(096) 543 38 24</li>
+      <li>+3 8(095) 549 97 83</li>
+      <li>+3 8(091) 800 22 16</li>
+    </ul>
+    <h2>Написать нам</h2>
       <%= form_for(@contact, :html => { :role => 'form'}) do |f| %>
         <% if @contact.errors.any? %>
           <div id="error">
