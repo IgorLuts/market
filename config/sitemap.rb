@@ -15,6 +15,10 @@ SitemapGenerator::Sitemap.create do
   Product.find_each do |product|
       add category_product_path(product.categories.first, product), :lastmod => product.updated_at
   end
+
+  Category.find_each do |category|
+      add category_path(category), :lastmod => category.updated_at
+  end
   # Put links creation logic here.
   #
   # The root path '/' and sitemap index file are added automatically for you.

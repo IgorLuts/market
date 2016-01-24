@@ -1,5 +1,18 @@
+<% content_for :breadcrumbs do %>
+  <div class="col-md-12">
+    <ul class="breadcrumb">
+      <li><%= link_to "Главная", root_path %></li>
+      <% @category.ancestors.each do |a| %>
+        <li><%= link_to a.name, a %></li>
+      <% end %>
+       <li><%= link_to @category.name, @category %></li>
+    </ul>
+  </div>
+<% end %>
+
 <div class="box">
     <h1><%= @category.name %></h1>
+    <p><%= @category.description %></p>
 </div>
   
 <div class="row products">
@@ -14,7 +27,7 @@
                   <h3><%= link_to product.title, category_product_path(@category, product) %></h3>
                   <p class="price"><%= number_to_currency product.price %></p>
                   <p class="buttons">
-                      <%= link_to "Подробно", category_product_path(@category, product), class:"btn btn-default" %>
+                      <%= link_to "Подробно", category_product_path(product.categories.first, product), class:"btn btn-default" %>
                       <%= link_to shopping_cart_items_path(:product_id => product), :method => 'POST', class:"btn btn-primary" do %>
                         <i class="fa fa-shopping-cart"></i>Купить
                       <% end %>

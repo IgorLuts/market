@@ -15,8 +15,9 @@
       <%= render 'layouts/top' %>
       <%= render 'layouts/navbar' %>
       <div id="all">
-        <div id="content">
+        <div id="content">            
             <div class="container">
+                <%= yield(:breadcrumbs) %>
                 <div class="col-md-3">
                     <%= yield(:user_menu) %>
                     <%= render 'layouts/sidebar' %>

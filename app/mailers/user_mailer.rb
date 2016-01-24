@@ -7,6 +7,6 @@ class UserMailer < ApplicationMailer
 
   def order_notification order 
     @order = order
-    mail(to: "alexxty7@gmail.com", :subject => "Order received")
+    mail(to: ["alexxty7@gmail.com", "i.luts.aot@gmail.com"], :subject => "Order received")
   end
 end
