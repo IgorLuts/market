@@ -68,6 +68,14 @@
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="description">
         <%= sanitize @product.description %>
+        <hr>
+        <div class="social-likes" data-title="<%= @product.title %>" data-counters="no">
+          <div class="facebook" title="Поделиться ссылкой на Фейсбуке">Facebook</div>
+          <div class="twitter" title="Поделиться ссылкой в Твиттере">Twitter</div>
+          <div class="vkontakte" title="Поделиться ссылкой во Вконтакте">Вконтакте</div>
+          <div class="odnoklassniki" title="Поделиться ссылкой в Одноклассниках">Одноклассники</div>
+          <div class="plusone" title="Поделиться ссылкой в Гугл-плюсе">Google+</div>
+        </div>
       </div>
       <div role="tabpanel" class="tab-pane" id="characteristics">
         <%= sanitize @product.characteristics %>

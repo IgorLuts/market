@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   root 'store#index'
 
+  get "/404" => "errors#not_found"
+  get "/500" => "errors#internal_server_error"
+
   mount Ckeditor::Engine => '/ckeditor'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-
   devise_for :users
 
   ActiveAdmin.routes(self)

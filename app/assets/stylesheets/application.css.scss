@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require font-awesome
+ *= require social-likes_flat
  *= require_self
  */
 
@@ -18,6 +19,7 @@
 @import "bootstrap";
 @import "style.default";
 @import "prettyPhoto";
+
 
 .cart_item_form{
   margin-top: 20px;

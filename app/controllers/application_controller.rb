@@ -44,4 +44,5 @@ class ApplicationController < ActionController::Base
       category_product_short_path category, product
     end
   end
+
 end

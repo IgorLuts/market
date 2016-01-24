@@ -5,7 +5,6 @@
     <title><%= content_for?(:title) ? yield(:title) : "Шведские стенки Ладас" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Шведские стенки Ладас" %>">
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,700italic,700,500italic,500,400italic,300,300italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
@@ -31,6 +30,6 @@
         <%= render 'layouts/footer' %>
         <%= render 'layouts/copyright' %>
       </div>
-
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>
