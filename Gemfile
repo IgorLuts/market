@@ -32,6 +32,7 @@ gem 'ransack'
 gem "fog-aws"
 gem 'cancancan'
 gem 'sitemap_generator'
+gem 'whenever', :require => false
 
 group :development, :test do
   gem 'byebug'
