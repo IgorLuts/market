@@ -2,6 +2,21 @@
 SitemapGenerator::Sitemap.default_host = "http://xn--80aal0a7a.xn--j1amh"
 
 SitemapGenerator::Sitemap.create do
+  def category_path(category)
+    unless category.is_root?
+      category_long_path category.parent, category
+    else
+      category_short_path category
+    end
+  end
+
+  def category_product_path(category, product)
+    unless category.is_root?
+      category_product_long_path category.parent, category, product
+    else
+      category_product_short_path category, product
+    end
+  end
   add about_path
   add pay_and_delivery_path
   add articles_path
