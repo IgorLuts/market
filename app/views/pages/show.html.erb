@@ -1,0 +1,14 @@
+<% content_for :title do %>
+  <%= @page.meta_title %>
+<% end %>
+<% content_for :description do %>
+  <%= @page.meta_description %>
+<% end %>
+<% content_for :keywords do %>
+  <%= @page.meta_keywords %>
+<% end %>
+
+<div class="box">
+  <h1><%= @page.title %></h1>
+  <%= sanitize @page.content %>
+</div>

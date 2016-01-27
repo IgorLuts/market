@@ -5,13 +5,13 @@
                 <h4>Информация</h4>
                 <ul>
                     <li>
-                        <%= link_to "О компании", about_path %>
+                        <%= link_to "О компании", page_path("o-nas") %>
                     </li>
                     <li>
-                        <%= link_to "Оплата и доставка", pay_and_delivery_path %>
+                        <%= link_to "Оплата и доставка", page_path("oplata-i-dostavka") %>
                     </li>
                     <li>
-                        <%= link_to "Акции", articles_path %>
+                        <%= link_to "Новости", articles_path %>
                     </li>
                 </ul>
             </div>
@@ -23,7 +23,7 @@
                         <%= link_to "Связаться с нам", new_contact_path %>
                     </li>
                     <li>
-                        <%= link_to "Возврат товара", pay_and_delivery_path %>
+                        <%= link_to "Возврат товара", page_path("oplata-i-dostavka") %>
                     </li>
                 </ul>
             </div>

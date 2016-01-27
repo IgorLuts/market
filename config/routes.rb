@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   post '/products/:product_id/comments' => 'comments#create', as: 'product_comments'
-  get '/katalog' => 'products#index', as: 'products'
+  get '/catalog' => 'products#index', as: 'products'
   # get '/c/:category_id/p/:id' => 'products#show', as: 'category_product'
   # get '/c/:id' => 'categories#show', as: 'category'
 
@@ -24,8 +24,9 @@ Rails.application.routes.draw do
   resource :shopping_cart_items, only: [:create, :destroy]
   resources :contacts, only: [:new, :create]
 
-  get 'o-nas' => 'pages#about', as: 'about'
-  get 'oplata-i-dostavka' => 'pages#pay_and_delivery', as: 'pay_and_delivery'
+  # get 'o-nas' => 'pages#about', as: 'about'
+  # get 'oplata-i-dostavka' => 'pages#pay_and_delivery', as: 'pay_and_delivery'
+  get ':id' => 'pages#show', as: :page
 
   get "c/:id" => 'categories#show', :as => :category_short
   get "c/:category/:id" => 'categories#show', :as => :category_long
