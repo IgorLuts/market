@@ -1,5 +1,5 @@
 ActiveAdmin.register Category do
-  permit_params :name, :active, :description, :keywords
+  permit_params :name, :active, :description, :meta_title, :meta_description, :meta_keywords
   sortable tree: true
 
   index :as => :sortable do
@@ -14,7 +14,9 @@ ActiveAdmin.register Category do
     f.inputs "Category Details" do
       f.input :name
       f.input :description, :as => :ckeditor
-      f.input :keywords
+      f.input :meta_title
+      f.input :meta_description
+      f.input :meta_keywords
       f.input :active
     end
     f.actions

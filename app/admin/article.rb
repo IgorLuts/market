@@ -3,7 +3,7 @@ ActiveAdmin.register Article do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-# permit_params :list, :of, :attributes, :on, :model
+permit_params :content, :description, :title, :meta_title, :meta_description, :meta_keywords
 #
 # or
 #
@@ -17,7 +17,9 @@ ActiveAdmin.register Article do
       f.input :title
       f.input :description, :as => :ckeditor
       f.input :content, :as => :ckeditor
-      f.input :keywords
+      f.input :meta_title
+      f.input :meta_description
+      f.input :meta_keywords
     end
     f.actions
   end

@@ -1,11 +1,11 @@
 <% content_for :title do %>
-  
+  <%= @product.meta_title %>
 <% end %>
 <% content_for :description do %>
-
+  <%= @product.meta_description %>
 <% end %>
 <% content_for :keywords do %>
-  <%= @product.keywords %>
+  <%= @product.meta_keywords %>
 <% end %>
 
 <% content_for :breadcrumbs do %>

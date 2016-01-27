@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160127174539) do
+ActiveRecord::Schema.define(version: 20160127195658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,26 +52,30 @@ ActiveRecord::Schema.define(version: 20160127174539) do
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.text     "description"
     t.string   "slug"
-    t.string   "keywords"
+    t.string   "meta_title"
+    t.string   "meta_description"
+    t.string   "meta_keywords"
   end
 
   add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true, using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "ancestry"
     t.integer  "position"
-    t.integer  "ancestry_depth", default: 0
-    t.boolean  "active",         default: true
+    t.integer  "ancestry_depth",   default: 0
+    t.boolean  "active",           default: true
     t.string   "slug"
     t.string   "description"
-    t.string   "keywords"
+    t.string   "meta_title"
+    t.string   "meta_description"
+    t.string   "meta_keywords"
   end
 
   add_index "categories", ["ancestry"], name: "index_categories_on_ancestry", using: :btree
@@ -167,15 +171,17 @@ ActiveRecord::Schema.define(version: 20160127174539) do
     t.text     "description"
     t.string   "image"
     t.float    "price"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.json     "gallery"
     t.string   "slug"
-    t.boolean  "available",       default: true
+    t.boolean  "available",        default: true
     t.string   "feature"
     t.string   "characteristics"
     t.string   "sales_info"
-    t.string   "keywords"
+    t.string   "meta_title"
+    t.string   "meta_description"
+    t.string   "meta_keywords"
   end
 
   add_index "products", ["slug"], name: "index_products_on_slug", unique: true, using: :btree

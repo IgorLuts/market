@@ -1,11 +1,11 @@
 <% content_for :title do %>
-  
+  <%= @article.meta_title %>
 <% end %>
 <% content_for :description do %>
-
+  <%= @article.meta_description %>
 <% end %>
 <% content_for :keywords do %>
-  <%= @article.keywords %>
+  <%= @article.meta_keywords %>
 <% end %>
 
 <div id="blog-post">
