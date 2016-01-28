@@ -17,11 +17,15 @@ SitemapGenerator::Sitemap.create do
       category_product_short_path category, product
     end
   end
-  add about_path
-  add pay_and_delivery_path
+
+
   add articles_path
   add products_path
   add new_user_session_path, priority: 0.0
+
+  Page.find_each do |page|
+      add page_path(page.slug), :lastmod => page.updated_at
+  end
 
   Article.find_each do |article|
       add article_path(article), :lastmod => article.updated_at
