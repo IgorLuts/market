@@ -21,7 +21,6 @@ SitemapGenerator::Sitemap.create do
 
   add articles_path
   add products_path
-  add new_user_session_path, priority: 0.0
 
   Page.find_each do |page|
       add page_path(page.slug), :lastmod => page.updated_at
@@ -36,7 +35,9 @@ SitemapGenerator::Sitemap.create do
   end
 
   Category.find_each do |category|
+    if category.active
       add category_path(category), :lastmod => category.updated_at
+    end
   end
   # Put links creation logic here.
   #

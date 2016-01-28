@@ -1,7 +1,7 @@
 ActiveAdmin.register Product do
 
   permit_params :title, :description, :image, :price, :available, :sales_info, :meta_title, :meta_description, :meta_keywords,
-                :feature, :characteristics, category_ids: [], tag_ids: [], gallery: []
+                :feature, :slug, :characteristics, category_ids: [], tag_ids: [], gallery: []
 
   index do
     selectable_column
@@ -20,6 +20,7 @@ ActiveAdmin.register Product do
   form html: { multipart: true } do |f|
     f.inputs "Product Details" do
       f.input :title
+      f.input :slug
       f.input :description, :as => :ckeditor
       f.input :characteristics, :as => :ckeditor
       f.input :image, :as => :file
