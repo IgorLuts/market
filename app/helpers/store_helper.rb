@@ -9,7 +9,7 @@ module StoreHelper
       when "new"
         "Новинка"
       else "gift"
-        "Подарок"
+        "Бесплатная доставка"
     end
     
     html = <<-HTML
