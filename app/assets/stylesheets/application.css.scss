@@ -20,6 +20,25 @@
 @import "style.default";
 @import "prettyPhoto";
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 210px;
+}
+#copyright {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#footer {
+  position: absolute;
+  bottom: 37px;
+  width: 100%;
+}
 
 .cart_item_form{
   margin-top: 20px;
