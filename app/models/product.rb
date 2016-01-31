@@ -1,8 +1,8 @@
 class Product < ActiveRecord::Base
   extend FriendlyId
 
-  has_many :product_categories, :dependent => :destroy
-  has_many :categories, through: :product_categories
+  belongs_to :category
+  
   has_many :product_tags, dependent: :destroy
   has_many :tags, through: :product_tags
   has_many :comments, dependent: :destroy
@@ -14,7 +14,7 @@ class Product < ActiveRecord::Base
   scope :similar, ->(product){
    joins(:tags).where('tags.name = ?', "#{product.tags.first.name}" ) if product.tags.present?
   }
-  validates :categories, :tags, :title, :description, :image, :price, presence: true
+  validates :category, :tags, :title, :description, :image, :price, presence: true
   
   friendly_id :title, use: :slugged
 

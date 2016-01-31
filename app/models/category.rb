@@ -1,8 +1,7 @@
 class Category < ActiveRecord::Base
   extend FriendlyId
 
-  has_many :product_categories, :dependent => :destroy
-  has_many :products, through: :product_categories
+  has_many :products
   
   has_ancestry :orphan_strategy => :rootify, :cache_depth => true
 

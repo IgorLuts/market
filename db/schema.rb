@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160127195658) do
+ActiveRecord::Schema.define(version: 20160131101811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -146,16 +146,6 @@ ActiveRecord::Schema.define(version: 20160127195658) do
 
   add_index "pages", ["slug"], name: "index_pages_on_slug", unique: true, using: :btree
 
-  create_table "product_categories", force: :cascade do |t|
-    t.integer  "product_id"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "product_categories", ["category_id"], name: "index_product_categories_on_category_id", using: :btree
-  add_index "product_categories", ["product_id"], name: "index_product_categories_on_product_id", using: :btree
-
   create_table "product_tags", force: :cascade do |t|
     t.integer  "tag_id"
     t.integer  "product_id"
@@ -182,8 +172,10 @@ ActiveRecord::Schema.define(version: 20160127195658) do
     t.string   "meta_title"
     t.string   "meta_description"
     t.string   "meta_keywords"
+    t.integer  "category_id"
   end
 
+  add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
   add_index "products", ["slug"], name: "index_products_on_slug", unique: true, using: :btree
 
   create_table "shopping_cart_items", force: :cascade do |t|
@@ -232,9 +224,8 @@ ActiveRecord::Schema.define(version: 20160127195658) do
 
   add_foreign_key "comments", "products"
   add_foreign_key "orders", "users"
-  add_foreign_key "product_categories", "categories"
-  add_foreign_key "product_categories", "products"
   add_foreign_key "product_tags", "products"
   add_foreign_key "product_tags", "tags"
+  add_foreign_key "products", "categories"
   add_foreign_key "shopping_cart_items", "orders"
 end

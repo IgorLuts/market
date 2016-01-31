@@ -20,26 +20,10 @@
 </div>
   
 <div class="row products">
-    <% @category.products.each do |product| %>
-      <% cache product do %>
-      <div class="col-md-4 col-sm-6">
-          <div class="product" itemscope itemtype="http://schema.org/Product">
-              <%= link_to category_product_path(@category, product) do %>
-                  <%= image_tag product.image.preview, class:"img-responsive" %>
-              <% end %>
-              <div class="text">
-                  <h3><%= link_to product.title, category_product_path(@category, product) %></h3>
-                  <p class="price"><%= number_to_currency product.price %></p>
-                  <p class="buttons">
-                      <%= link_to "Подробно", category_product_path(product.categories.first, product), class:"btn btn-default" %>
-                      <%= link_to shopping_cart_items_path(:product_id => product), :method => 'POST', class:"btn btn-primary" do %>
-                        <i class="fa fa-shopping-cart"></i>Купить
-                      <% end %>
-                  </p>
-              </div>
-              <%= product_feature(product.feature) %>
-          </div>
-      </div>
+   <%= render "products/product", products: @category.products %>
+   <% if @category.has_children? %>
+      <% @category.children.each do |a| %>
+        <%= render "products/product", products: a.products %>
       <% end %>
-  <% end %>
+   <% end %>
 </div>   

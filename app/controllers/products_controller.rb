@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
 
   def index
     @q = Product.ransack(params[:q])
-    @products = @q.result.includes(:categories).page(params[:page])
+    @products = @q.result.page(params[:page])
   end
 
 

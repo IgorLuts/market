@@ -19,12 +19,12 @@
                 <% @order.shopping_cart_items.each do |shopping_cart_item| %>
                     <tr>
                         <td>
-                            <%= link_to category_product_path(shopping_cart_item.item.categories.first, shopping_cart_item.item) do %>
+                            <%= link_to category_product_path(shopping_cart_item.item.category, shopping_cart_item.item) do %>
                                 <%= image_tag shopping_cart_item.item.image.preview, class:"img-responsive" %>
                                     <% end %>
                         </td>
                         <td>
-                            <%= link_to shopping_cart_item.item.title, category_product_path(shopping_cart_item.item.categories.first, shopping_cart_item.item) %>
+                            <%= link_to shopping_cart_item.item.title, category_product_path(shopping_cart_item.item.category, shopping_cart_item.item) %>
                         </td>
                         <td>
                             <%= shopping_cart_item.quantity %>
