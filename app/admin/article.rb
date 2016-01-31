@@ -12,6 +12,9 @@ permit_params :content, :description, :title, :meta_title, :meta_description, :m
 #   permitted << :other if resource.something?
 #   permitted
 # end
+  filter :title
+  filter :content
+
   form html: { multipart: true } do |f|
     f.inputs "Product Details" do
       f.input :title

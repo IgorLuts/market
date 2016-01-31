@@ -1,9 +1,7 @@
 ActiveAdmin.register Order do
   menu :priority => 4
- 
-
-  filter :total_price
-  filter :created_at
+  
+  config.filters = false 
 
   index do
     column("Order", :sortable => :id) {|order| link_to "##{order.id} ", admin_order_path(order) }

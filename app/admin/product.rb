@@ -14,8 +14,10 @@ ActiveAdmin.register Product do
     actions
   end
 
-  filter :categories
+  filter :title, label: "Поиск"
+  filter :category
   filter :price
+
 
   form html: { multipart: true } do |f|
     f.inputs "Product Details" do

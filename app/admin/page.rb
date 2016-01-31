@@ -12,6 +12,10 @@ permit_params :title, :content, :slug, :meta_title, :meta_description, :meta_key
 #   permitted << :other if resource.something?
 #   permitted
 # end
+
+  filter :title
+  filter :content
+
   index do
     selectable_column
     id_column
