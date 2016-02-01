@@ -36,6 +36,17 @@ gem 'whenever', :require => false
 
 group :development, :test do
   gem 'byebug'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'capybara-webkit'
+end
+
+group :test do 
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'json_spec'
 end
 
 group :development do
