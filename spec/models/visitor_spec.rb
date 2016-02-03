@@ -5,11 +5,16 @@ RSpec.describe Visitor, type: :model do
   it { should allow_value('user@example.com').for(:email ) }
   it { should_not allow_value('user11example.com').for(:email ) }
 
-  it 'should subscribed to mailchimp list' do
-    visitor = Visitor.new(email: "test@test.ru")
+  describe 'subscribed' do
 
-    visitor.subscribe
-    
-    expect(Rails.logger).to receive(:info).with("Subscribed #{visitor.email} to MailChimp")
+    it 'should add info to logger' do
+      visitor = Visitor.new(email: "test@test.ru")
+
+      visitor.subscribe
+      
+      expect(Rails.logger).to receive(:info).with("Subscribed test@test.ru to MailChimp")
+    end
+
   end
+
 end
