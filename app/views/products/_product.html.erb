@@ -3,11 +3,15 @@
   <div class="col-md-4 col-sm-6">
       <div class="product" itemscope itemtype="http://schema.org/Product">
           <%= link_to category_product_path(product.category, product) do %>
-              <%= image_tag product.image.preview, class:"img-responsive" %>
+              <%= image_tag product.image.preview, class:"img-responsive", itemprop: "image" %>
           <% end %>
           <div class="text">
-              <h3><%= link_to product.title, category_product_path(product.category, product) %></h3>
-              <p class="price"><%= number_to_currency product.price %></p>
+              <h3 itemprop="name"><%= link_to product.title, category_product_path(product.category, product) %></h3>
+              <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                  <p class="price"><%= number_to_currency product.price %></p>
+                  <meta itemprop="price" content="<%= product.price %>">
+                  <meta itemprop="priceCurrency" content="UAH">
+              </div>
               <p class="buttons">
                   <%= link_to "Подробно", category_product_path(product.category, product), class:"btn btn-default" %>
                   <%= link_to shopping_cart_items_path(:product_id => product), :method => 'POST', class:"btn btn-primary" do %>

@@ -22,14 +22,14 @@
             <i class="fa fa-comment-o"></i> Оставить отзыв
         </button>
    <% end %>
-<div id="comments">
-    <div id="blog-post">
-        <% @product.comments.each do |comment| %>
-        <div class="comment" id="blog-post">
-            <h5><%= comment.user_name %></h5>
-            <p class="posted"><i class="fa fa-clock-o"></i> <%= time_tag comment.created_at %></p>
-            <p><%= comment.body %></p>  
-        </div>
-        <% end %>  
-    </div>
-</div>
+  <div id="comments">
+      <div id="blog-post">
+          <% @comments.each do |comment| %>
+              <div class="comment" id="blog-post">
+                  <h5><%= comment.user_name %></h5>
+                  <p class="posted"><i class="fa fa-clock-o"></i> <%= time_tag comment.created_at %></p>
+                  <p><%= comment.body %></p>  
+              </div>
+          <% end %>  
+      </div>
+  </div>

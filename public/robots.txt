@@ -3,4 +3,6 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 User-agent: *
 Disallow: /admin/*
+Disallow: /?page=
+Host: xn--80aal0a7a.xn--j1amh
 Sitemap: http://xn--80aal0a7a.xn--j1amh/sitemap.xml.gz

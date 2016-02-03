@@ -15,10 +15,21 @@ permit_params :content, :description, :title, :meta_title, :meta_description, :m
   filter :title
   filter :content
 
+  index do
+    selectable_column
+    id_column
+    column :title
+    column("content") { |page| truncate page.content }
+    column :created_at
+    actions
+  end
+  
   form html: { multipart: true } do |f|
     f.inputs "Product Details" do
       f.input :title
-      f.input :slug
+      if f.object.persisted?
+        f.input :slug
+      end
       f.input :description, :as => :ckeditor
       f.input :content, :as => :ckeditor
       f.input :meta_title

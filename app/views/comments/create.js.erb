@@ -1,1 +1,4 @@
-$('#review').html("<%= escape_javascript render('comments/comment') %>");
+$('#new_comment').prepend("<div class='alert alert-info' role='alert'>\
+                          <p>Ваш коментарий принят и будет опубликован после модерации</p></div>");
+$('#comment_user_name').val(' ');
+$('#comment_body').val(' ');

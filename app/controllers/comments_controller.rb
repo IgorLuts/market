@@ -3,10 +3,10 @@ class CommentsController < ApplicationController
   before_action :find_categories
   
   def create
-    @comments = @product.comments.new(comment_params)
+    @comment = @product.comments.new(comment_params)
     respond_to do |format|
-      if @comments.save
-        format.html { redirect_to @product }
+      if @comment.save
+        format.html { redirect_to category_product_path(@product.category, @product) }
         format.js
       else
         format.html { render :new }

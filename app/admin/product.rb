@@ -22,7 +22,9 @@ ActiveAdmin.register Product do
   form html: { multipart: true } do |f|
     f.inputs "Product Details" do
       f.input :title
-      f.input :slug
+      if f.object.persisted?
+        f.input :slug
+      end
       f.input :description, :as => :ckeditor
       f.input :characteristics, :as => :ckeditor
       f.input :image, :as => :file

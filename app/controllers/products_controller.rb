@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.friendly.find(params[:id])
     @similar = Product.similar(@product).all_except(@product).limit(3)
+    @comments = @product.comments.where(approved: true)
   end
 
 
