@@ -97,6 +97,9 @@ GEM
       sass (~> 3.4)
       thor (~> 0.19)
     builder (3.2.2)
+    bullet (5.0.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.9.0)
     byebug (8.2.2)
     cancancan (1.13.1)
     capistrano (3.4.0)
@@ -348,6 +351,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    uniform_notifier (1.9.0)
     warden (1.2.6)
       rack (>= 1.0)
     web-console (2.3.0)
@@ -373,6 +377,7 @@ DEPENDENCIES
   babosa
   better_errors
   bootstrap-sass
+  bullet
   byebug
   cancancan
   capistrano

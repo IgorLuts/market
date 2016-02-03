@@ -55,7 +55,8 @@ group :development do
   gem 'spring'
   gem 'better_errors'
   gem 'faker'
-
+  gem "bullet"
+  
   gem 'capistrano',         require: false
   gem 'capistrano-rvm',     require: false
   gem 'capistrano-rails',   require: false

@@ -4,13 +4,13 @@ class ProductsController < ApplicationController
 
   def index
     @q = Product.ransack(params[:q])
-    @products = @q.result.page(params[:page])
+    @products = @q.result.includes(:category).page(params[:page])
   end
 
 
   def show
     @product = Product.friendly.find(params[:id])
-    @similar = Product.similar(@product).all_except(@product).limit(3)
+    @similar = Product.includes(:category).similar(@product).all_except(@product).limit(3)
     @comments = @product.comments.where(approved: true)
   end
 
