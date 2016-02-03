@@ -87,7 +87,7 @@
           </div>
         </div>
         <div role="tabpanel" class="tab-pane" id="characteristics">
-          <%= sanitize @product.characteristics %>
+          <%= sanitize @product.characteristics, tags: %w(table h2 tbody tr td div p) %>
         </div>
         <div role="tabpanel" class="tab-pane" id="review">
           <%= render 'comments/comment' %>
