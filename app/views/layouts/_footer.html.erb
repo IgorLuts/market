@@ -38,16 +38,14 @@
             </div>
             <!-- /.col-md-3 -->
             <div class="col-md-3 col-sm-6">
-                <h4>Подписка на новости</h4>
-                <p class="text-muted">Подпишитесь на новости и акционные предложения.</p>
-                <%= form_for Visitor.new do|f| %>
-                    <div class="input-group">
-                        <%= f.text_field :email, label: false, class: "form-control" %>
-                        <span class="input-group-btn">
-                            <%= f.button "Подпишись!" , :class => "btn btn-default" %>
-                        </span>
-                    </div>
-                <% end %>
+                <h4>Мы в соцсетях</h4>
+                <p class="social">
+                            <a href="https://www.facebook.com/groups/ladas.ukr" class="facebook external" data-animate-hover="shake" style="opacity: 1;"><i class="fa fa-facebook"></i></a>
+                            <a href="https://vk.com/ladas_ukr" class="twitter external" data-animate-hover="shake" style="opacity: 1;"><i class="fa fa-vk"></i></a>
+                            <a href="https://ok.ru/group/55077000773651" class="instagram external" data-animate-hover="shake" style="opacity: 1;"><i class="fa fa-odnoklassniki"></i></a>
+                            <a href="https://plus.google.com/+ЛадасУкраина" class="gplus external" data-animate-hover="shake" style="opacity: 1;"><i class="fa fa-google-plus"></i></a>
+                </p>
+
             </div>
             <!-- /.col-md-3 -->
         </div>
