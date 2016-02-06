@@ -10,11 +10,11 @@ SitemapGenerator::Sitemap.create do
     end
   end
 
-  def category_product_path(category, product)
-    unless category.is_root?
-      category_product_long_path category.parent, category, product
+  def category_product_path(product)
+    unless product.category.is_root?
+      category_product_long_path product.category.parent, product.category, product
     else
-      category_product_short_path category, product
+      category_product_short_path product.category, product
     end
   end
 
@@ -31,7 +31,7 @@ SitemapGenerator::Sitemap.create do
   end
 
   Product.find_each do |product|
-      add category_product_path(product.category, product), :lastmod => product.updated_at
+      add category_product_path(product), :lastmod => product.updated_at
   end
 
   Category.find_each do |category|

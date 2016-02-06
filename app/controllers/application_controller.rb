@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   def find_categories
     @categories = Rails.cache.fetch("global/categories", expires_in: 10.minutes) do
-      Category.where({:active => true}).arrange
+      Category.includes(:products).where({:active => true}).arrange
     end
   end
 
@@ -37,18 +37,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def category_product_path(category, product)
-    unless category.is_root?
-      category_product_long_path category.parent, category, product
+  def category_product_path(product)
+    unless product.category.is_root?
+      category_product_long_path product.category.parent, product.category, product
     else
-      category_product_short_path category, product
+      category_product_short_path product.category, product
     end
   end
-  def category_product_url(category, product)
-    unless category.is_root?
-      category_product_long_url category.parent, category, product
+  
+  def category_product_url(product)
+    unless product.category.is_root?
+      category_product_long_url product.category.parent, product.category, product
     else
-      category_product_short_url category, product
+      category_product_short_url product.category, product
     end
   end
 

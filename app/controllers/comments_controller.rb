@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment = @product.comments.new(comment_params)
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to category_product_path(@product.category, @product) }
+        format.html { redirect_to category_product_path(@product) }
         format.js
       else
         format.html { render :new }

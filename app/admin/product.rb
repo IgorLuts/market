@@ -45,7 +45,7 @@ ActiveAdmin.register Product do
   csv do
     column('id', humanize_name: false)
     column('available', humanize_name: false)
-    column('url', humanize_name: false)        { |product| category_product_url(product.category, product) }
+    column('url', humanize_name: false)        { |product| category_product_url(product) }
     column('price', humanize_name: false)
     column('currencyId', humanize_name: false) { "UAH" }
     column('category', humanize_name: false)   { "Гимнастические снаряды и спортивные комплексы" }
