@@ -19,7 +19,7 @@
       <div class="col-sm-6">
         <div id="mainImage">
             <%=link_to @product.image.url, rel: "prettyPhoto[gallery1]" do %>
-                <%= image_tag @product.image.preview, class: "img-responsive", itemprop: "image" %>
+                <%= image_tag @product.image.preview, alt: @product.title, class: "img-responsive", itemprop: "image" %>
             <% end %>
         </div>
         <%= product_feature(@product.feature) %>
@@ -51,10 +51,10 @@
               <div class="ribbon-background"></div>
           </div>
           <div class="row" id="thumbs">
-            <% @product.gallery.each do |image| %>
+            <% @product.gallery.each_with_index do |image, index| %>
               <div class="col-xs-4">
                 <%=link_to image.url, rel: "prettyPhoto[gallery1]", class: "thumb"  do %>
-                  <%= image_tag image.thumb, class: "img-responsive" %>
+                  <%= image_tag image.thumb, alt: "#{@product.title} preview#{index}", class: "img-responsive" %>
                 <% end %>
               </div>
             <% end %>
