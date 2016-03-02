@@ -27,7 +27,7 @@
           <% @comments.each do |comment| %>
               <div class="comment" id="blog-post">
                   <h5><%= comment.user_name %></h5>
-                  <p class="posted"><i class="fa fa-clock-o"></i> <%= time_tag comment.created_at %></p>
+                  <p class="posted"><i class="fa fa-clock-o"></i> <%= time_tag comment.created_at.to_date %></p>
                   <p><%= comment.body %></p>  
               </div>
           <% end %>  
