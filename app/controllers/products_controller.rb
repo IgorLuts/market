@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
 
     @similar = Product.includes(:category).similar(@product).all_except(@product).limit(3)
     @comments = @product.comments.where(approved: true)
+    @comments_count = @product.comments.where(approved: true).count
   end
 
 

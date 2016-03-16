@@ -30,7 +30,18 @@
             <h1 class="text-center" itemprop="name"><%= @product.title %></h1>
             <p class="goToDescription"><%= @product.sales_info %></p>
             <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-              <p class="price"><%= number_to_currency @product.price %></p>
+              <% if @product.old_price %>
+                <p class="price">
+                  <span class="sale">
+                    <%= number_to_currency @product.old_price %>
+                  </span>
+                  <span>
+                    <%= number_to_currency @product.price %>
+                  </span>
+                </p>
+              <% else %>
+                <p class="price"><%= number_to_currency @product.price %></p>
+              <% end %>
                   <meta itemprop="price" content="<%= @product.price %>">
                   <meta itemprop="priceCurrency" content="UAH">
             </div>
@@ -69,7 +80,7 @@
         <% if @product.characteristics && @product.characteristics != "" %>
           <li role="presentation"><a href="#characteristics" aria-controls="characteristics" role="tab" data-toggle="tab">Характеристики</a></li>
         <% end %>
-        <li role="presentation"><a href="#review" aria-controls="review" role="tab" data-toggle="tab">Отзывы</a></li>
+        <li role="presentation"><a href="#review" aria-controls="review" role="tab" data-toggle="tab">Отзывы (<%= @comments_count %>)</a></li>
         <li role="presentation"><a href="#recent" aria-controls="recent" role="tab" data-toggle="tab">Похожие товары</a></li>
       </ul>
 
@@ -96,5 +107,5 @@
           <%= render "products/product", products: @similar %>
         </div>
       </div>
-  </div>
+ 
 </div>

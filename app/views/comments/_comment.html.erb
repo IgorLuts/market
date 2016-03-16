@@ -28,8 +28,17 @@
               <div class="comment" id="blog-post">
                   <h5><%= comment.user_name %></h5>
                   <p class="posted"><i class="fa fa-clock-o"></i> <%= time_tag comment.created_at.to_date %></p>
-                  <p><%= comment.body %></p>  
+                  <p><%= comment.body %></p>
+
+                <% comment.comment_replies.each do |reply| %>
+                  <div class="comment-replies">                 
+                    <h5><%= reply.user_name %></h5>
+                    <p class="posted"><i class="fa fa-clock-o"></i> <%= time_tag reply.created_at.to_date %></p>
+                    <p><%= reply.body %></p>
+                  </div> 
+                <% end %> 
               </div>
+
           <% end %>  
       </div>
   </div>

@@ -1,4 +1,6 @@
 ActiveAdmin.register Category do
+  menu parent: :products
+  
   permit_params :name, :active, :description, :meta_title, :meta_description, :meta_keywords, :slug
   sortable tree: true
   
