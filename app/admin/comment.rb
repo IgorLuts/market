@@ -18,7 +18,7 @@ ActiveAdmin.register Comment, :as => "ProductComment" do
   form html: { multipart: true } do |f|
     f.inputs "Product Details" do
       f.input :user_name
-      f.input :body, as: :text
+      f.input :body, :as => :ckeditor
       f.input :approved
       f.input :product
     end

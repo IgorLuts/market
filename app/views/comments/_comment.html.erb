@@ -1,3 +1,7 @@
+  <div class="btn btn-primary pull-left" id='show_comment_form'>
+    Написать отзыв
+  </div>
+  <div class="clearfix"></div>
   <%= form_for([@product, Comment.new], :html => { :role => 'form'}, remote: true) do |f| %>
       <% if Comment.new.errors.any? %>
         <div id="error">
@@ -28,13 +32,13 @@
               <div class="comment" id="blog-post">
                   <h5><%= comment.user_name %></h5>
                   <p class="posted"><i class="fa fa-clock-o"></i> <%= time_tag comment.created_at.to_date %></p>
-                  <p><%= comment.body %></p>
+                  <p><%= raw comment.body %></p>
 
                 <% comment.comment_replies.each do |reply| %>
                   <div class="comment-replies">                 
                     <h5><%= reply.user_name %></h5>
                     <p class="posted"><i class="fa fa-clock-o"></i> <%= time_tag reply.created_at.to_date %></p>
-                    <p><%= reply.body %></p>
+                    <p><%= raw reply.body %></p>
                   </div> 
                 <% end %> 
               </div>

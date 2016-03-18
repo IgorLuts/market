@@ -32,5 +32,9 @@ $(document).ready(function(){
         return this.href ==url_head;
     }).parent().addClass('active');
 
+    $('#show_comment_form').on('click', function(){
+        $('.new_comment').show("slow");
+        $('#show_comment_form').hide();
+    });
 
 });

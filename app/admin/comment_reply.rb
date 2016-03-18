@@ -16,7 +16,7 @@ ActiveAdmin.register CommentReply do
   form do |f|
     f.inputs "Reply Details" do
       f.input :user_name
-      f.input :body, as: :text
+      f.input :body, :as => :ckeditor
     end
     f.actions
   end
