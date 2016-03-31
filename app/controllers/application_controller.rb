@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   def find_categories
     @categories = Rails.cache.fetch("global/categories", expires_in: 10.minutes) do
-      Category.includes(:products).where({:active => true}).arrange
+      Category.where({:active => true}).arrange
     end
   end
 

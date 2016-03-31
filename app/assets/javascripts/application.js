@@ -17,7 +17,11 @@
 //= require_tree .
 
 $(document).ready(function(){
-    $("a[rel^='prettyPhoto']").prettyPhoto();
+    $("a[rel^='prettyPhoto']").prettyPhoto({
+        theme:'light_rounded',
+        social_tools:false,
+        deeplinking:false,
+    });
 
     var url = window.location;
     var element = $('ul.nav.menu_active a').filter(function() {
