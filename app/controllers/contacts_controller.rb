@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   before_action :set_cart
   before_action :find_categories
-  
+
   def new
     @contact = Contact.new
   end
@@ -17,10 +17,15 @@ class ContactsController < ApplicationController
     end
   end
 
+  def callback
+    @contact = Contact.new(secure_params)
+    UserMailer.callback(@contact).deliver_now
+    redirect_to root_path
+  end
+
   private
 
   def secure_params
-    params.require(:contact).permit(:name, :email, :content)
+    params.require(:contact).permit(:name, :email, :content, :phone)
   end
-
 end

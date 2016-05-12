@@ -22,7 +22,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resource :shopping_cart, only: [:show, :destroy]
   resource :shopping_cart_items, only: [:create, :destroy]
-  resources :contacts, only: [:new, :create]
+  resources :contacts, only: [:new, :create] do
+    post 'callback', on: :collection, as: :callback
+  end
 
   # get 'o-nas' => 'pages#about', as: 'about'
   # get 'oplata-i-dostavka' => 'pages#pay_and_delivery', as: 'pay_and_delivery'
@@ -33,5 +35,4 @@ Rails.application.routes.draw do
 
   get '/c/:category_id/p/:id' => 'products#show', as: 'category_product_short'
   get '/c/:category/:category_id/p/:id' => 'products#show', as: 'category_product_long'
-
 end

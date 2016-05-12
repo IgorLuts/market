@@ -9,4 +9,9 @@ class UserMailer < ApplicationMailer
     @order = order
     mail(to: ["alexxty7@gmail.com", "i.luts.aot@gmail.com"], :subject => "Order received")
   end
+
+  def callback(contact)
+    @contact = contact
+    mail(to: ["alexxty7@gmail.com", "i.luts.aot@gmail.com"], :subject => "Callback")
+  end
 end

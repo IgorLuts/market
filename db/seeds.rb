@@ -33,6 +33,7 @@
 # p "Created #{Article.count} Articles"
 
 # p "Created #{Category.count} categories"
+
 categ1 = Category.find_by(name: "Шведские стенки для детей")
 categ2 = Category.find_by(name: "Шведские стенки для взрослых")
 categ3 = Category.find_by(name: "Шведские стенки для всей семьи")
