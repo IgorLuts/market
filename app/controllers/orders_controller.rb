@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :set_cart
   before_action :find_categories
   before_action :load_order, only: :show
-  
+
   authorize_resource only: [:index, :show]
 
   def index
@@ -25,11 +25,12 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params.merge(user: current_user))
     @order.add_line_items_from_cart(@shopping_cart)
     @order.add_total_price(@shopping_cart)
-    
+
     respond_to do |format|
       if @order.save
         UserMailer.order_notification(@order).deliver_later
-        @shopping_cart.clear
+        ShoppingCart.destroy(session[:shopping_cart_id])
+        session[:shopping_cart_id] = nil
         format.html { redirect_to root_path, notice: 'Ваш заказ был успешно оформен.' }
         format.json { render :show, status: :created, location: @order }
       else
@@ -40,11 +41,12 @@ class OrdersController < ApplicationController
   end
 
   private
-    def load_order
-      @order = Order.find(params[:id])
-    end
 
-    def order_params
-      params.require(:order).permit(:name, :adress, :email, :phone)
-    end
+  def load_order
+    @order = Order.find(params[:id])
+  end
+
+  def order_params
+    params.require(:order).permit(:name, :adress, :email, :phone)
+  end
 end

@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_cart 
+  def set_cart
     shopping_cart_id = session[:shopping_cart_id]
     @shopping_cart = session[:shopping_cart_id] ? ShoppingCart.find(shopping_cart_id) : ShoppingCart.create
     session[:shopping_cart_id] = @shopping_cart.id
