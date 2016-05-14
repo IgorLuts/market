@@ -7,8 +7,13 @@ class ShoppingCart < ActiveRecord::Base
 
     cart_item.delete
   end
-  
+
   def total
     subtotal
+  end
+
+  def self.remove_old_records
+    old_record = ShoppingCart.where('created_at < ?', 7.days.ago)
+    delete(old_record)
   end
 end
