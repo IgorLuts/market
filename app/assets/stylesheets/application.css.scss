@@ -12,12 +12,15 @@
  *
  *= require font-awesome
  *= require social-likes_flat
+ *= require owl.carousel
+ *= require owl.theme
+ *= require owl.transitions
  *= require_self
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "style.default";
+@import "style.blue";
 @import "prettyPhoto";
 
 @media (min-width: 991px) {
@@ -37,7 +40,7 @@
 
   #footer {
     position: absolute;
-    bottom: 37px;
+    bottom: 20px;
     width: 100%;
   }
 }
@@ -55,7 +58,7 @@
 .ribbon.new.presents {
   top: -20px;
   .theribbon {
-    width: 141px;
+    width: 200px;
   }
 }
 

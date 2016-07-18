@@ -5,7 +5,7 @@ lock '3.4.0'
 # Project configuration options
 # ------------------------------
 
-set :application,    'market'
+set :application,    'stenki'
 set :login,          'lexx777'
 set :user,           'hosting_lexx777'
 
@@ -17,7 +17,7 @@ set :bundle_without, [:development, :test]
 set :use_sudo,       false
 
 set :repo_url,       'git@github.com:alexxty7/market.git'
-
+set :branch,         'new_site/stenki'
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 

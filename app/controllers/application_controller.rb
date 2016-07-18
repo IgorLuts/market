@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
   helper_method :category_path, :category_product_path, :category_product_url
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:account_update) { |u| 
-      u.permit(:password, :password_confirmation, :current_password) 
+    devise_parameter_sanitizer.for(:account_update) { |u|
+      u.permit(:password, :password_confirmation, :current_password)
     }
   end
 

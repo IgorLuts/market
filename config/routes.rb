@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new, :create] do
     post 'callback', on: :collection, as: :callback
   end
-
+  resources :brands, only: [:show]
   # get 'o-nas' => 'pages#about', as: 'about'
   # get 'oplata-i-dostavka' => 'pages#pay_and_delivery', as: 'pay_and_delivery'
   get ':id' => 'pages#show', as: :page

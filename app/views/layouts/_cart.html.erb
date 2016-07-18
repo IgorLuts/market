@@ -1,4 +1,4 @@
-<%= link_to shopping_cart_path, class: "btn btn-primary navbar-btn" do %>
+<%= link_to shopping_cart_path, class: "btn btn-primary" do %>
   <i class="fa fa-shopping-cart"></i>
   <% if @shopping_cart and !@shopping_cart.empty? %>
     <span class="hidden-sm"><%=number_to_currency(@shopping_cart.total) %></span>

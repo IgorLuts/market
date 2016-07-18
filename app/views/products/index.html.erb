@@ -5,17 +5,40 @@
 <% content_for :keywords do %>
 шведская стенка для детей купить в харькове, спортивная шведская стенка для детей, шведская стенка для взрослых киев, шведские стенки для детей и взрослых, шведская стенка для всей семьи, шведская стенка для самых маленьких, шведская стенка для детей в квартиру<% end %>
 
-<div class="box">
-  <% if params[:q] %>
-    <h1>Результаты поиска</h1>
-  <% else %>
-    <h1>Каталог товаров</h1>
-  <% end %>
+<% content_for :breadcrumbs do %>
+  <div id="heading-breadcrumbs" class="col-md-12">
+    <div class="container">
+        <div class="row">
+          <ul class="breadcrumb">
+            <li><%= link_to "Главная", root_path %></li>
+             <li>Каталог</li>
+          </ul>          
+        </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="col-md-3">
+  <%= yield(:user_menu) %>
+  <%= render 'layouts/sidebar' %>
 </div>
-  
-<div class="row products">
-    <%= render "products/product", products: @products %>
-</div>      
 
-<%= paginate @products %>
-
+<div class="col-md-9">
+  <div class="box">
+    <% if params[:q] %>
+      <h1>Результаты поиска</h1>
+      <% if @products.empty? %>
+        <h3>поиск не дал результатов</h3>
+      <% end %>
+    <% else %>
+      <h1>Каталог товаров</h1>
+    <% end %>
+  </div>
+    
+  <div class="row products">
+      <%= render "products/product", products: @products %>
+  </div>      
+  <div class="row">
+    <%= paginate @products %>
+  </div>
+</div>

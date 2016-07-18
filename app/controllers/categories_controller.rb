@@ -8,5 +8,4 @@ class CategoriesController < ApplicationController
       redirect_to category_path(@category), status: :moved_permanently
     end
   end
-
 end

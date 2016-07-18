@@ -5,7 +5,26 @@
 <% content_for :keywords do %>
 шведская стенка с установкой днепропетровск, шведская стенка для детей днепропетровск, шведские стенки от производителя днепропетровск, шведская стенка для детей купить в харькове, купить турник настенный в одессе.<% end %>
 
-<div class="box" id="contact">
+<% content_for :breadcrumbs do %>
+  <div id="heading-breadcrumbs" class="col-md-12">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <h1>Контакты</h1>
+          </div>
+          <div class="col-md-5">
+            <ul class="breadcrumb">
+              <li><%= link_to "Главная", root_path %></li>
+               <li>Контакты</li>
+            </ul>
+          </div>          
+        </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="col-md-8 col-md-offset-2">
+ <div class="box" id="contact">
     <h2>Номера телефонов</h2>
     <p>Вы сможете проконсультироваться с менеджерами или заказать товар по следующим номерам:</p>
     <ul>
@@ -42,4 +61,5 @@
           <i class="fa fa-envelope-o"></i> Отправить сообщение
         </button>
       <% end %>
+  </div> 
 </div>

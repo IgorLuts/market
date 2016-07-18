@@ -7,7 +7,6 @@ class ProductsController < ApplicationController
     @products = @q.result.includes(:category).page(params[:page])
   end
 
-
   def show
     @product = Product.friendly.find(params[:id])
     if request.path != category_product_path(@product)
@@ -16,8 +15,6 @@ class ProductsController < ApplicationController
 
     @similar = Product.includes(:category).similar(@product).all_except(@product).limit(3)
     @comments = @product.comments.where(approved: true)
-    @comments_count = @product.comments.where(approved: true).count
+    @comments_count = @comments.count
   end
-
-
 end

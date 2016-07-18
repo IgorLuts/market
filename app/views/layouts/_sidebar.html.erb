@@ -9,3 +9,17 @@
       <% end %> 
     </div>
 </div>
+
+<div class="panel panel-default sidebar-menu">
+    <div class="panel-heading">
+        <h3 class="panel-title">Производители</h3>
+    </div>
+    <div class="panel-body">
+      <ul class="nav nav-pills nav-stacked category-menu menu_active">
+        <% Brand.all.each do |brand| %>
+          <li><%= link_to brand.name, brand %></li>
+        <% end %>
+      </ul> 
+    </div>
+</div>
+

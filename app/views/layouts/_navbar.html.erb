@@ -10,18 +10,6 @@
                     <span class="sr-only">Toggle navigation</span>
                     <i class="fa fa-align-justify"></i>
                 </button>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
-                    <span class="sr-only">Toggle search</span>
-                    <i class="fa fa-search"></i>
-                </button>
-                <%= link_to shopping_cart_path, class: "btn btn-default navbar-toggle" do %>
-                  <i class="fa fa-shopping-cart"></i>
-                  <% if @shopping_cart and !@shopping_cart.empty? %>
-                    <span class="hidden-xs"><%=number_to_currency(@shopping_cart.total) %></span>
-                  <% else %>
-                    <span class="hidden-xs">Корзина пуста</span>
-                  <% end %>
-                <% end %>
             </div>
         </div>
         <!--/.navbar-header -->
@@ -29,9 +17,6 @@
             <ul class="nav navbar-nav navbar-left">
                 <li>
                     <a href="/">Главная</a>
-                </li>
-                <li>
-                    <%= link_to "О нас", page_path("o-nas") %>
                 </li>
                 <li>
                     <%= link_to "Каталог", products_path %>
@@ -46,22 +31,7 @@
                     <%= link_to "Контакты", new_contact_path %>
                 </li>
             </ul>
-        </div>
-        <!--/.nav-collapse -->
-        <div class="navbar-buttons">
-            <div class="navbar-collapse collapse right" id="basket-overview">
-                <%= render 'layouts/cart' %>
-            </div>
-            <!--/.nav-collapse -->
-            <div class="navbar-collapse collapse right" id="search-not-mobile">
-                <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
-                    <span class="sr-only">Toggle search</span>
-                    <i class="fa fa-search"></i>
-                </button>
-            </div>
-        </div>
-        <div class="collapse clearfix" id="search">
-            <%= search_form_for Product.ransack(params[:q]), html: {class: "navbar-form", role: "search" } do |f| %>
+            <%= search_form_for Product.ransack(params[:q]), html: {class: "navbar-form navbar-right", role: "search" } do |f| %>
                 <div class="input-group">
                   <%= f.search_field :title_cont, placeholder: "Поиск", class: "form-control" %>
                   <span class="input-group-btn">
@@ -70,6 +40,9 @@
                 </div> 
             <% end %>
         </div>
+        <!--/.nav-collapse -->
+
+
         <!--/.nav-collapse -->
     </div>
     <!-- /.container -->
