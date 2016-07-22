@@ -1,29 +1,25 @@
-<% content_for :title do %>
-Шведские стенки Ладас, официальный сайт. Шведские стенки от производителя, купить недорого в интернет магазине<% end %>
-<% content_for :description do %>
-Ладас.укр интернет магазин шведских стенок. У нас вы можете приобрести шведские стенки для детей и взрослых от производителя. Бесплатная доставка по всей Украине. Наши телефоны: (096) 543 38 24, (095) 549 97 83.<% end %>
-<% content_for :keywords do %>
-купить шведскую стенку в интернет магазине украина, шведская стенка купить недорого в интернет магазине, шведские стенки ладас украина официальный сайт, шведская стенка ладас производитель, купить шведскую стенку от производителя недорого, шведские стенки от производителя днепропетровск<% end %>
-
 <%= render 'home_carousel', products: @novinki%>
-
-<div class="box">
-    <h1>Популярные товары</h1>
+<div class="col-md-3">
+  <%= yield(:user_menu) %>
+  <%= render 'layouts/sidebar' %>
 </div>
+<div class="col-md-9">
+  <div class="box">
+      <h1>Популярные товары</h1>
+  </div>
 
-<div class="row products">
-    <%= render "products/product", products: @popular_products %>
+  <div class="row products">
+      <%= render "products/product", products: @popular_products %>
+  </div>
+
+  <div class="box">
+      <h2>Новинки</h2>
+  </div>
+  <div class="row products">
+      <%= render "products/product", products: @novinki %>
+  </div>
+  <div class="box">
+    <%= render "store_intro" %>
+  </div>       
 </div>
-
-<div class="box">
-    <h2>Новинки</h2>
-</div>
-<div class="row products">
-    <%= render "products/product", products: @novinki %>
-</div>
-<div class="box">
-  <%= render "store_intro" %>
-</div>       
-
-
 
