@@ -29,12 +29,7 @@
   </div>
     
   <div class="row products">
-     <%= render "products/product", products: @category.products %>
-     <% if @category.has_children? %>
-        <% @category.children.each do |a| %>
-          <%= render "products/product", products: a.products %>
-        <% end %>
-     <% end %>
+     <%= render "products/product", products: @products %>
   </div>    
 </div>
 <div class="row">
