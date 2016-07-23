@@ -51,8 +51,8 @@ ActiveAdmin.register Product do
     column('price', humanize_name: false)
     column('currencyId', humanize_name: false) { "UAH" }
     column('category', humanize_name: false)   { "Гимнастические снаряды и спортивные комплексы" }
-    column('picture', humanize_name: false)    { |product| "http://ladas.xyz" + product.image.url }
+    column('picture', humanize_name: false)    { |product| "http://http://stenkishvedskie.dp.ua" + product.image.url }
     column('name', humanize_name: false)        { |product| product.title }
-    column('vendor', humanize_name: false)      { "Ладас" }
+    column('vendor', humanize_name: false)      { |product| product.brand.name }
   end
 end

@@ -52,5 +52,4 @@ class ApplicationController < ActionController::Base
       category_product_short_url product.category, product
     end
   end
-
 end
