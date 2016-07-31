@@ -55,7 +55,7 @@ ActiveAdmin.register Product do
     column('name', humanize_name: false)        { |product| product.title }
     column('vendor', humanize_name: false)      { |product| product.brand.name }
     column('delivery', humanize_name: false)      { 'true' }
-    column('local_delivery_costcolumn', humanize_name: false) { |product| product.delivery_cost }
+    column('local_delivery_cost', humanize_name: false) { |product| product.delivery_cost }
     column('local_delivery_days', humanize_name: false) { '1-2' }
   end
 end
