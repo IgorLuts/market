@@ -54,5 +54,8 @@ ActiveAdmin.register Product do
     column('picture', humanize_name: false)    { |product| "http://stenkishvedskie.dp.ua" + product.image.url }
     column('name', humanize_name: false)        { |product| product.title }
     column('vendor', humanize_name: false)      { |product| product.brand.name }
+    column('delivery', humanize_name: false)      { 'true' }
+    column('local_delivery_costcolumn', humanize_name: false) { |product| product.delivery_cost }
+    column('local_delivery_days', humanize_name: false) { '1-2' }
   end
 end

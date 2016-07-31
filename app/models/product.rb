@@ -24,4 +24,14 @@ class Product < ActiveRecord::Base
   def normalize_friendly_id(text)
     text.to_slug.normalize(transliterations: :russian).to_s
   end
+
+  def delivery_cost
+    if brand.name == 'Ладас'
+      '0'
+    elsif brand.name == 'Babygrai' && price > 1000
+      '0'
+    else
+      '150'
+    end
+  end
 end
