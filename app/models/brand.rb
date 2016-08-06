@@ -1,6 +1,6 @@
 class Brand < ActiveRecord::Base
   extend FriendlyId
-  has_many :products
+  has_many :products, dependent: :destroy
 
   friendly_id :name, use: :slugged
 
