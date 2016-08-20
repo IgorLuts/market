@@ -255,3 +255,10 @@ ru:
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
     pm: вечера
+  activerecord:
+    attributes:
+      order:
+        name: 'Имя'
+        last_name: 'Фамилия'
+        adress: 'Адрес доставки'
+        phone: 'Номер телефона'

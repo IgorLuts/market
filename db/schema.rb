@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316111340) do
+ActiveRecord::Schema.define(version: 20160820134733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 20160316111340) do
   end
 
   add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true, using: :btree
+
+  create_table "brands", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "brands", ["slug"], name: "index_brands_on_slug", unique: true, using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -140,6 +149,8 @@ ActiveRecord::Schema.define(version: 20160316111340) do
     t.float    "total_price"
     t.string   "phone"
     t.integer  "user_id"
+    t.string   "comment"
+    t.string   "last_name"
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
@@ -185,8 +196,10 @@ ActiveRecord::Schema.define(version: 20160316111340) do
     t.string   "meta_keywords"
     t.integer  "category_id"
     t.float    "old_price"
+    t.integer  "brand_id"
   end
 
+  add_index "products", ["brand_id"], name: "index_products_on_brand_id", using: :btree
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
   add_index "products", ["slug"], name: "index_products_on_slug", unique: true, using: :btree
 
@@ -239,6 +252,7 @@ ActiveRecord::Schema.define(version: 20160316111340) do
   add_foreign_key "orders", "users"
   add_foreign_key "product_tags", "products"
   add_foreign_key "product_tags", "tags"
+  add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
   add_foreign_key "shopping_cart_items", "orders"
 end
