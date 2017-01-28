@@ -1,14 +1,11 @@
 class VisitorsController < ApplicationController
-
   def create
     @visitor = Visitor.new(secure_params)
     if @visitor.valid?
       @visitor.subscribe
-      flash[:notice] = "Подписка успешно оформлена."
-      redirect_to root_path
-    else
-      redirect_to root_path
+      flash[:notice] = 'Подписка успешно оформлена.'
     end
+    redirect_to root_path
   end
 
   private
@@ -16,5 +13,4 @@ class VisitorsController < ApplicationController
   def secure_params
     params.require(:visitor).permit(:email)
   end
-
 end

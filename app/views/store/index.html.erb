@@ -20,8 +20,5 @@
     <%= render "products/product", products: @novinki %>
 </div>
 <div class="box">
-  <%= render "store_intro" %>
-</div>       
-
-
-
+  <%= sanitize @main_page.content %>
+</div>
