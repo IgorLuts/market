@@ -2,8 +2,7 @@
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand home" href="/">
-                <%= image_tag "logo.png", class: "hidden-xs" %>
-                <%= image_tag "logo-small.png", class: "visible-xs" %>
+                <%= image_tag "logo.png" %>
             </a>
             <div class="navbar-buttons">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
@@ -36,8 +35,8 @@
                   <%= f.search_field :title_cont, placeholder: "Поиск", class: "form-control" %>
                   <span class="input-group-btn">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-                  </span> 
-                </div> 
+                  </span>
+                </div>
             <% end %>
         </div>
         <!--/.nav-collapse -->

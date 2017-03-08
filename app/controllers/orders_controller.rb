@@ -22,6 +22,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    return if @shopping_cart.empty?
     @order = Order.new(order_params.merge(user: current_user))
     @order.add_line_items_from_cart(@shopping_cart)
     @order.add_total_price(@shopping_cart)
