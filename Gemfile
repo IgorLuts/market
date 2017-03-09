@@ -25,7 +25,7 @@ gem 'unicorn', group: :production
 gem 'kaminari'
 gem 'gibbon'
 gem 'figaro'
-gem 'friendly_id', '~> 5.1.0' 
+gem 'friendly_id', '~> 5.1.0'
 gem 'babosa'
 gem 'newrelic_rpm'
 gem 'ransack'
@@ -33,6 +33,7 @@ gem "fog-aws"
 gem 'cancancan'
 gem 'sitemap_generator'
 gem 'whenever', :require => false
+gem 'activeadmin_addons'
 
 group :development, :test do
   gem 'byebug'
@@ -42,7 +43,7 @@ group :development, :test do
   # gem 'capybara-webkit'
 end
 
-group :test do 
+group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'launchy'
@@ -56,10 +57,9 @@ group :development do
   gem 'better_errors'
   gem 'faker'
   gem "bullet"
-  
+
   gem 'capistrano',         require: false
   gem 'capistrano-rvm',     require: false
   gem 'capistrano-rails',   require: false
   gem 'capistrano-bundler', require: false
 end
-

@@ -6,7 +6,7 @@ ActiveAdmin.register Brand do
   config.filters = false
 
   form do |f|
-    f.inputs "Brand Details" do
+    f.inputs 'Brand Details' do
       f.input :name
     end
     f.actions

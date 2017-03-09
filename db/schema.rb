@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309125247) do
+ActiveRecord::Schema.define(version: 20170309152052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20170309125247) do
     t.string   "meta_title"
     t.string   "meta_description"
     t.string   "meta_keywords"
+    t.string   "custom_style"
   end
 
   add_index "categories", ["ancestry"], name: "index_categories_on_ancestry", using: :btree

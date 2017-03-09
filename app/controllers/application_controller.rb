@@ -8,14 +8,14 @@ class ApplicationController < ActionController::Base
   helper_method :category_path
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:account_update) { |u|
+    devise_parameter_sanitizer.for(:account_update) do |u|
       u.permit(:password, :password_confirmation, :current_password)
-    }
+    end
   end
 
   def find_categories
-    @categories = Rails.cache.fetch("global/categories", expires_in: 10.minutes) do
-      Category.where({:active => true}).arrange
+    @categories = Rails.cache.fetch('global/categories', expires_in: 10.minutes) do
+      Category.where(active: true).arrange
     end
   end
 
@@ -26,14 +26,14 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.message
+    redirect_to root_url, alert: exception.message
   end
 
   def category_path(category)
-    unless category.is_root?
-      category_long_path category.parent, category
-    else
+    if category.is_root?
       category_short_path category
+    else
+      category_long_path category.parent, category
     end
   end
 end
