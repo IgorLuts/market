@@ -4,12 +4,8 @@
         <div class="row">
           <ul class="breadcrumb">
             <li><%= link_to "Главная", root_path %></li>
-            <% @product.category.ancestors.each do |a| %>
-              <li><%= link_to a.name, a %></li>
-            <% end %>
-             <li><%= link_to @product.category.name, @product.category %></li>
              <li><%= @product.title %></li>
-          </ul>          
+          </ul>
         </div>
     </div>
   </div>

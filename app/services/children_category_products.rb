@@ -4,13 +4,27 @@ class ChildrenCategoryProducts
   end
 
   def products
-    Product.includes(:category).where(category_id: all_category_ids)
+    Product.where(id: product_ids)
   end
 
   private
 
-  def all_category_ids
-    return @category.id unless @category.has_children?
-    [@category.id] + @category.children.map(&:id)
+  def product_ids
+    children_categories_product_ids + category_product_ids
   end
+
+  def children_categories_product_ids
+    children_categories.inject([]) {|ids, c| ids << c.product_ids }.flatten
+  end
+
+  def children_categories
+    return [] unless category.has_children?
+    category.children
+  end
+
+  def category_product_ids
+    category.product_ids
+  end
+
+  attr_accessor :category
 end

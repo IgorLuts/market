@@ -10,11 +10,12 @@
   <div class="row products">
       <%= render "products/product", products: @popular_products %>
   </div>
-
-  <div class="box">
-      <h2>Новинки</h2>
-  </div>
-  <div class="row products">
-      <%= render "products/product", products: @novinki %>
-  </div>
+  <% if @novinki.any? %>
+    <div class="box">
+        <h2>Новинки</h2>
+    </div>
+    <div class="row products">
+        <%= render "products/product", products: @novinki %>
+    </div>
+  <% end %>
 </div>

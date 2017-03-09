@@ -32,7 +32,5 @@ Rails.application.routes.draw do
 
   get "c/:id" => 'categories#show', :as => :category_short
   get "c/:category/:id" => 'categories#show', :as => :category_long
-
-  get '/c/:category_id/p/:id' => 'products#show', as: 'category_product_short'
-  get '/c/:category/:category_id/p/:id' => 'products#show', as: 'category_product_long'
+  get '/p/:id' => 'products#show', as: 'product'
 end

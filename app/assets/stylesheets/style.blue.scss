@@ -1093,12 +1093,14 @@ fieldset[disabled] .btn-template-primary.active {
 .ribbon.sale {
   top: 0;
 }
+
 .ribbon.new {
-  top: 50px;
+  top: 0px;
 }
 .ribbon.new .theribbon {
   background-color: #5bc0de;
   text-shadow: 0px 1px 2px #bbb;
+  width: 90px;
 }
 .ribbon.new .theribbon:after {
   border-color: #2390b0 #2390b0 transparent transparent;
@@ -3556,7 +3558,7 @@ a.list-group-item.active > .badge,
 /*!
  * Yamm!3 - Yet another megamenu for Bootstrap 3
  * http://geedmo.github.com/yamm3
- * 
+ *
  * @geedmo - Licensed under the MIT license
  */
 .yamm .nav,

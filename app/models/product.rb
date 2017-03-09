@@ -1,12 +1,12 @@
 class Product < ActiveRecord::Base
   extend FriendlyId
 
-  belongs_to :category
   belongs_to :brand
 
   has_many :product_tags, dependent: :destroy
   has_many :tags, through: :product_tags
   has_many :comments, dependent: :destroy
+  has_and_belongs_to_many :categories
 
   mount_uploader :image, ImageUploader
   mount_uploaders :gallery, GalleryUploader
@@ -15,7 +15,7 @@ class Product < ActiveRecord::Base
   scope :similar, ->(product){
    joins(:tags).where('tags.name = ?', "#{product.tags.first.name}" ) if product.tags.present?
   }
-  validates :category, :tags, :title, :description, :image, :price, presence: true
+  validates :categories, :tags, :title, :description, :image, :price, presence: true
 
   friendly_id :title, use: :slugged
 

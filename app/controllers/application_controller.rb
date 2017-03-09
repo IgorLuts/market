@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :find_categories, :set_cart, if: :devise_controller?
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
-  helper_method :category_path, :category_product_path, :category_product_url
+  helper_method :category_path
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update) { |u|
@@ -34,22 +34,6 @@ class ApplicationController < ActionController::Base
       category_long_path category.parent, category
     else
       category_short_path category
-    end
-  end
-
-  def category_product_path(product)
-    unless product.category.is_root?
-      category_product_long_path product.category.parent, product.category, product
-    else
-      category_product_short_path product.category, product
-    end
-  end
-  
-  def category_product_url(product)
-    unless product.category.is_root?
-      category_product_long_url product.category.parent, product.category, product
-    else
-      category_product_short_url product.category, product
     end
   end
 end
