@@ -12,6 +12,7 @@
 <div class="col-md-9">
   <div itemscope itemtype="http://schema.org/Product">
     <div class="row" id="productMain">
+      <div class="row">
         <div class="col-sm-6">
           <div id="mainImage">
               <%=link_to @product.image.url, rel: "prettyPhoto[gallery1]" do %>
@@ -61,6 +62,8 @@
                 <div class="ribbon-background"></div>
             </div>
         </div>
+      </div>
+      <div class="row">
         <div class="col-xs-6 embed-responsive embed-responsive-4by4">
           <iframe class="embed-responsive-item" src="<%= @product.video_url %>"></iframe>
         </div>
@@ -73,6 +76,7 @@
             </div>
           <% end %>
         </div>
+      </div>
     </div>
 
     <div class="box product_tab" id="details">
@@ -92,7 +96,7 @@
             <%= sanitize @product.description %>
             <div class="attachment">
                 <p>Скачать электронное пособие для набора <strong><%= @product.title %></strong> на русском</p>
-                <a type="button" class="btn btn-danger" target='_blank' href=<%= @product.attachments.first.file_url %>>
+                <a type="button" class="btn btn-danger" target='_blank' href=<%= @product.attachments.first.try(:file_url) %>>
                   <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
                   Скачать
                 </a>
