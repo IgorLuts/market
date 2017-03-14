@@ -34,7 +34,7 @@ gem 'cancancan'
 gem 'sitemap_generator'
 gem 'whenever', :require => false
 gem 'activeadmin_addons'
-
+gem 'slim'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'

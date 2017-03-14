@@ -7,13 +7,15 @@ class Product < ActiveRecord::Base
   has_many :tags, through: :product_tags
   has_many :comments, dependent: :destroy
   has_and_belongs_to_many :categories
+  has_many :attachments
+  accepts_nested_attributes_for :attachments, allow_destroy: true
 
   mount_uploader :image, ImageUploader
   mount_uploaders :gallery, GalleryUploader
 
   scope :all_except, ->(product) { where.not(id: product.id) }
-  scope :similar, ->(product){
-   joins(:tags).where('tags.name = ?', "#{product.tags.first.name}" ) if product.tags.present?
+  scope :similar, ->(product) {
+    joins(:tags).where('tags.name = ?', product.tags.first.name.to_s) if product.tags.present?
   }
   validates :categories, :tags, :title, :description, :image, :price, presence: true
 

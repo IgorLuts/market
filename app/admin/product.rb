@@ -1,6 +1,9 @@
 ActiveAdmin.register Product do
-  permit_params :title, :description, :image, :price, :available, :sales_info, :meta_title, :meta_description, :meta_keywords,
-                :feature, :slug, :characteristics, :brand_id, :old_price, :video_url, tag_ids: [], gallery: [], category_ids: []
+  permit_params :title, :description, :image, :price, :available, :sales_info,
+                :meta_title, :meta_description, :meta_keywords, :feature, :slug,
+                :characteristics, :brand_id, :old_price, :video_url,
+                tag_ids: [], gallery: [], category_ids: [],
+                attachments_attributes: [:id, :file, :_destroy]
 
   index do
     selectable_column
@@ -36,6 +39,11 @@ ActiveAdmin.register Product do
       f.input :meta_title
       f.input :meta_description
       f.input :meta_keywords
+      f.inputs 'Attachment' do
+        f.has_many :attachments, heading: false, allow_destroy: true do |a|
+          a.input :file, as: :file, hint: a.object.try(:file_url)
+        end
+      end
     end
     f.actions
   end

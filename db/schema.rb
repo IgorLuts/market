@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309152052) do
+ActiveRecord::Schema.define(version: 20170314155331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 20170309152052) do
   end
 
   add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true, using: :btree
+
+  create_table "attachments", force: :cascade do |t|
+    t.string   "file"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "attachments", ["product_id"], name: "index_attachments_on_product_id", using: :btree
 
   create_table "brands", force: :cascade do |t|
     t.string   "name"
@@ -254,6 +263,7 @@ ActiveRecord::Schema.define(version: 20170309152052) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "attachments", "products"
   add_foreign_key "categories_products", "categories"
   add_foreign_key "categories_products", "products"
   add_foreign_key "comment_replies", "comments"

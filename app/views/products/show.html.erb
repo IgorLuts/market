@@ -90,6 +90,13 @@
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="description" itemprop="description">
             <%= sanitize @product.description %>
+            <div class="attachment">
+                <p>Скачать электронное пособие для набора <strong><%= @product.title %></strong> на русском</p>
+                <a type="button" class="btn btn-danger" target='_blank' href=<%= @product.attachments.first.file_url %>>
+                  <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                  Скачать
+                </a>
+            </div>
             <hr>
             <div class="social-likes" data-title="<%= @product.title %>" data-counters="no">
               <div class="facebook" title="Поделиться ссылкой на Фейсбуке">Facebook</div>
