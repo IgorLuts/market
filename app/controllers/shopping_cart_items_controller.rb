@@ -18,5 +18,4 @@ class ShoppingCartItemsController < ApplicationController
     @shopping_cart.remove(@item)
     redirect_to shopping_cart_path
   end
-
 end
