@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "StenkiShvedskie | Шведские стенки от производителя" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "StenkiShvedskie - официальный сайт, шведские стенки по цене производителя" %>">
+    <title><%= content_for?(:title) ? yield(:title) : "Магформерс | Магнитные конструкторы" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Магформерс - великолепный магнитный конструктор для развития интеллекта" %>">
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
@@ -21,11 +21,11 @@
       <%= render 'layouts/top' %>
       <%= render 'layouts/navbar' %>
       <div id="all">
-        <div id="content">            
+        <div id="content">
             <%= yield(:breadcrumbs) %>
             <div class="container">
               <%= render 'layouts/messages' %>
-              <%= yield %>              
+              <%= yield %>
             </div>
         </div>
         <%= render 'layouts/footer' %>
