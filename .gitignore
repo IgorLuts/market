@@ -18,6 +18,7 @@
 /public/uploads/*
 /config/database.yml
 .locum
+.byebug_history
 # Ignore application configuration
 /config/application.yml
 

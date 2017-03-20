@@ -14,7 +14,7 @@ class ChildrenCategoryProducts
   end
 
   def children_categories_product_ids
-    children_categories.inject([]) {|ids, c| ids << c.product_ids }.flatten
+    children_categories.inject([]) { |acc, elem| acc << elem.product_ids }.flatten
   end
 
   def children_categories

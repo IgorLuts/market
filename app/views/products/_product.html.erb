@@ -10,7 +10,7 @@
                   <%= link_to product.title, product_path(product) %>
               </h3>
                   <p class="price"><%= number_to_currency product.price %></p>
-              <p class="buttons">
+              <p>
                   <%= link_to "Подробно", product_path(product), class:"btn btn-default" %>
                   <%= link_to shopping_cart_items_path(:product_id => product), :method => 'POST', class:"btn btn-primary" do %>
                     <i class="fa fa-shopping-cart"></i>Купить
