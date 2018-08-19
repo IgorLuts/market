@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'sitemap_generator'
 gem 'bootstrap-sass'
 gem 'acts_as_shopping_cart'
 gem 'font-awesome-rails'
@@ -30,7 +31,6 @@ gem 'newrelic_rpm'
 gem 'ransack'
 gem 'fog-aws'
 gem 'cancancan'
-gem 'sitemap_generator'
 gem 'whenever', require: false
 gem 'slim-rails'
 gem 'jquery_mask_rails'
