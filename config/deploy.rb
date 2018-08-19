@@ -1,6 +1,6 @@
 # encoding: utf-8
 # config valid only for Capistrano 3
-lock '3.4.0'
+lock '3.9.0'
 
 # Project configuration options
 # ------------------------------
@@ -16,7 +16,7 @@ set :unicorn_pid,    "/var/run/unicorn/#{fetch(:user)}/" \
 set :bundle_without, [:development, :test]
 set :use_sudo,       false
 
-set :repo_url,       'git@github.com:alexxty7/market.git'
+set :repo_url,       'git@github.com:IgorLuts/market.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
