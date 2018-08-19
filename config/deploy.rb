@@ -1,6 +1,6 @@
 # encoding: utf-8
 # config valid only for Capistrano 3
-lock '3.9.0'
+lock '3.4.0'
 
 # Project configuration options
 # ------------------------------
@@ -38,7 +38,7 @@ set :linked_dirs, %w(bin log tmp/cache vendor/bundle public/system public/upload
 # set :keep_releases, 5
 
 # Configure RVM
-set :rvm_ruby_version, '2.2'
+set :rvm_ruby_version, '2.3.0'
 
 # You unlikely have to change below this line
 # -----------------------------------------------------------------------------
