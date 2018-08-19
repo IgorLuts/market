@@ -34,6 +34,7 @@ gem 'sitemap_generator'
 gem 'whenever', require: false
 gem 'slim-rails'
 gem 'jquery_mask_rails'
+gem "recaptcha"
 
 group :development, :test do
   gem 'byebug'

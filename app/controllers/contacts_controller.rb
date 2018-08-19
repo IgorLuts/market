@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(secure_params)
-    if @contact.valid?
+    if verify_recaptcha(model: @contact) && @contact.valid?
       UserMailer.contact_email(@contact).deliver_now
       flash[:notice] = "Сообщение от #{@contact.name} отправленно."
       redirect_to root_path

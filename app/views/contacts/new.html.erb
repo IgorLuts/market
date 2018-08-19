@@ -36,6 +36,7 @@
           <%= f.label "Ваш вопрос:" %><br>
           <%= f.text_area :content, class: 'form-control' %>
         </div>
+        <%= recaptcha_tags %>
         <button type="submit" class="btn btn-primary">
           <i class="fa fa-envelope-o"></i> Отправить сообщение
         </button>
