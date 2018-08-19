@@ -2,7 +2,7 @@
 # Article.destroy_all
 
 # Category.create!([
-#   { name: "Шведские стенки"}, 
+#   { name: "Шведские стенки"},
 #   { name: "Шведские стенки для детей"},
 #   { name: "Шведские стенки для взрослых"},
 #   { name: "Шведские стенки для всей семьи"},
@@ -28,7 +28,7 @@
 # })
 # end
 
-# AdminUser.create!(email: 'alexxty7@gmail.com', password: '2580gott', password_confirmation: '2580gott')
+AdminUser.create!(email: 'alexxty7@gmail.com', password: '2580gott', password_confirmation: '2580gott')
 
 # p "Created #{Article.count} Articles"
 
@@ -76,4 +76,3 @@
 # end
 
 # p "Created #{Product.count} products"
-ShoppingCart.destroy_all

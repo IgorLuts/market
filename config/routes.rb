@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  constraints subdomain: 'www' do
+    get ':any', to: redirect(subdomain: nil, path: '/%{any}'), any: /.*/
+  end
+
   root 'store#index'
 
   get "/404" => "errors#not_found"
@@ -26,8 +30,6 @@ Rails.application.routes.draw do
     post 'callback', on: :collection, as: :callback
   end
 
-  # get 'o-nas' => 'pages#about', as: 'about'
-  # get 'oplata-i-dostavka' => 'pages#pay_and_delivery', as: 'pay_and_delivery'
   get ':id' => 'pages#show', as: :page
 
   get "c/:id" => 'categories#show', :as => :category_short
@@ -35,4 +37,5 @@ Rails.application.routes.draw do
 
   get '/c/:category_id/p/:id' => 'products#show', as: 'category_product_short'
   get '/c/:category/:category_id/p/:id' => 'products#show', as: 'category_product_long'
+
 end

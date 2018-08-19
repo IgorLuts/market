@@ -3,7 +3,7 @@
   <div class="col-md-4 col-sm-6">
       <div class="product">
           <%= link_to category_product_path(product) do %>
-              <%= image_tag product.image.preview, alt: product.title, class:"img-responsive" %>
+              <%= image_tag product.image.small_preview, alt: product.title, class:"img-responsive" %>
           <% end %>
           <div class="text">
               <h3>

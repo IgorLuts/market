@@ -2,7 +2,7 @@ class Product < ActiveRecord::Base
   extend FriendlyId
 
   belongs_to :category
-  
+
   has_many :product_tags, dependent: :destroy
   has_many :tags, through: :product_tags
   has_many :comments, dependent: :destroy
@@ -14,8 +14,11 @@ class Product < ActiveRecord::Base
   scope :similar, ->(product){
    joins(:tags).where('tags.name = ?', "#{product.tags.first.name}" ) if product.tags.present?
   }
+  scope :novinki, -> { includes(:tags).where(tags: {name: 'novinki'}).references(:tags) }
+  scope :popular, -> { includes(:tags).where(tags: {name: 'popular'}).references(:tags) }
+
   validates :category, :tags, :title, :description, :image, :price, presence: true
-  
+
   friendly_id :title, use: :slugged
 
   paginates_per 15
@@ -23,5 +26,4 @@ class Product < ActiveRecord::Base
   def normalize_friendly_id(text)
     text.to_slug.normalize(transliterations: :russian).to_s
   end
-
 end

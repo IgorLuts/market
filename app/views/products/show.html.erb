@@ -23,8 +23,8 @@
             <% end %>
         </div>
         <%= product_feature(@product.feature) %>
-      </div>          
-      
+      </div>
+
       <div class="col-sm-6">
           <div class="box">
             <h1 class="text-center" itemprop="name"><%= @product.title %></h1>
@@ -87,7 +87,7 @@
       <!-- Tab panes -->
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="description" itemprop="description">
-          <%= sanitize @product.description %>
+          <%= raw @product.description %>
           <hr>
           <div class="social-likes" data-title="<%= @product.title %>" data-counters="no">
             <div class="facebook" title="Поделиться ссылкой на Фейсбуке">Facebook</div>
@@ -107,5 +107,5 @@
           <%= render "products/product", products: @similar %>
         </div>
       </div>
- 
+
 </div>
