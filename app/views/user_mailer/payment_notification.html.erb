@@ -1,0 +1,14 @@
+
+<h1>Здравствуйте, вы успешно оформили заказ</h1>
+<p>Детали заказа: </p>
+<% @order.shopping_cart_items.each do |item| %>
+  <p>Название: <%= item.item.title %></p>
+  <p>Количество: <%= item.quantity  %></p>
+  <p>Цена: <%= number_to_currency item.item.price %></p>
+  <hr>
+<% end %>
+
+<p>Итого к оплате: <%= number_to_currency @order.total_price  %></p>
+<p>Реквизиты для оплаты</p>
+<p>Карта Приват Банка 4731 1856 0318 0651, получатель Лутс Игорь Олегович</p>
+<p>С уважением Ладас Украина</p>

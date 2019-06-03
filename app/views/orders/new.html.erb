@@ -21,17 +21,47 @@
           <%= f.text_field :last_name, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label "Email (необязательно)" %><br>
+          <%= f.label "Email(обязательно если хотите оплатить онлайн)" %><br>
           <%= f.text_field :email, class: 'form-control' %>
         </div>
         <div class="form-group">
           <%= f.label :phone, "Номер телефона" %><br>
           <%= f.text_field :phone, class: 'form-control' %>
         </div>
+
         <div class="form-group">
-          <%= f.label "Адрес доставки" %><br>
+          <p>Способ доставки</p>
+          <hr/>
+          <p><input name="sd" type="radio" value="na-otdelenie", checked> На отделение перевозчика</p>
+          <p><input name="sd" type="radio" value="kurierom"> Курьером на дом</p>
+       </div>
+
+        <div class="form-group">
+          <%= f.label "Город и отделение перевозчика (Новая Почта, Интайм) либо адрес доставки" %><br>
           <%= f.text_area :adress, class: 'form-control' %>
         </div>
+
+        <div class="form-group">
+          <%= f.label "Форма оплаты" %><br>
+          <hr/>
+          <div>
+          </div>
+          <div>
+             <%= f.label :online_payment do %>
+             <%= f.radio_button :online_payment, false, checked: true %> Наличными при получении
+           <% end  %>
+          </div>
+           <div>
+        <%= f.label :online_payment do %>
+          <%= f.radio_button :online_payment, true %> на карту Приватбанка
+        <% end  %>
+        <div>
+        </div>
+          </div>
+          <hr/>
+При оплате на карту Приватбанка можно воспользоваться такими платежными системами: PayPal, Webmoney, Приват24 и др. Данные по карте придут на ваш Email.
+        </div>
+
         <div class="form-group">
           <%= f.submit 'Оформить заказ', :class => 'btn btn-primary pull-right'%>
           <%= link_to root_path, class: "btn btn-default pull-left" do %>

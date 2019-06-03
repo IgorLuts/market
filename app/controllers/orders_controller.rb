@@ -29,6 +29,8 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         UserMailer.order_notification(@order).deliver_later
+        UserMailer.payment_notification(@order).deliver_later if @order.online_payment == 'true'
+
         ShoppingCart.destroy(session[:shopping_cart_id])
         session[:shopping_cart_id] = nil
         format.html { redirect_to root_path, notice: 'Ваш заказ был успешно оформен.' }
@@ -47,6 +49,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:name, :last_name, :adress, :email, :phone)
+    params.require(:order).permit(:name, :last_name, :adress, :email, :phone, :online_payment)
   end
 end

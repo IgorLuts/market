@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.8'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -14,8 +14,8 @@ gem 'bootstrap-sass'
 gem 'acts_as_shopping_cart'
 gem 'font-awesome-rails'
 gem 'devise'
-gem 'activeadmin', github: 'activeadmin'
-gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'activeadmin', '1.0.0.pre5'
+gem 'carrierwave', '0.11.0'
 gem 'mini_magick'
 gem 'ancestry', '~> 2.1.0'
 gem 'active_admin-sortable_tree'
@@ -57,7 +57,7 @@ group :development do
   gem 'faker'
   gem 'bullet'
 
-  gem 'capistrano',         require: false
+  gem 'capistrano',  '3.4.1', require: false
   gem 'capistrano-rvm',     require: false
   gem 'capistrano-rails',   require: false
   gem 'capistrano-bundler', require: false

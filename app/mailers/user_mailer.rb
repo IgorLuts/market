@@ -18,4 +18,9 @@ class UserMailer < ApplicationMailer
     @comment = comment
     mail(to: ['i.luts.aot@gmail.com'], subject: 'Comment received')
   end
+
+  def payment_notification(order)
+    @order = order
+    mail(to: @order.email, subject: 'Оплата')
+  end
 end
