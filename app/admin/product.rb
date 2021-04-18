@@ -35,6 +35,7 @@ ActiveAdmin.register Product do
       f.input :available
       f.input :sales_info
       f.input :feature, :as => :select, :collection => ["sale", "new", "gift"]
+      f.input :shape_size, :as => :select, :collection => [1.5, 2.0]
       f.input :tags
       f.input :meta_title
       f.input :meta_description
