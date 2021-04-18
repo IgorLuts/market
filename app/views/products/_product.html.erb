@@ -1,10 +1,11 @@
 <% products.each do |product| %>
-  <% cache product do %>
   <div class="col-md-4 col-sm-6">
       <div class="product">
-          <%= link_to category_product_path(product) do %>
-              <%= image_tag product.image.small_preview, alt: product.title, class:"img-responsive" %>
-          <% end %>
+          <div style="display: flex; justify-content: center;">
+            <%= link_to category_product_path(product) do %>
+                <%= image_tag product.image.small_preview, alt: product.title, class:"img-responsive" %>
+            <% end %>
+          </div>
           <div class="text">
               <h3>
                   <%= link_to product.title, category_product_path(product) %>
@@ -20,5 +21,4 @@
           <%= product_feature(product.feature) %>
       </div>
   </div>
-  <% end %>
 <% end %>

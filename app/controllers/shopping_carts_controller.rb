@@ -1,7 +1,8 @@
 class ShoppingCartsController < ApplicationController
+  layout "orders"
   before_action :set_cart
   before_action :find_categories
-  
+
   def show
   end
 

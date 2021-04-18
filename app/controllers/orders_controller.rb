@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  layout "orders"
   before_action :set_cart
   before_action :find_categories
   before_action :load_order, only: :show

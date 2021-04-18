@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
 
   def set_cart
     shopping_cart_id = session[:shopping_cart_id]
-    @shopping_cart = session[:shopping_cart_id] ? ShoppingCart.find(shopping_cart_id) : ShoppingCart.create
+    @shopping_cart = ShoppingCart.find_or_create_by(id: shopping_cart_id)
     session[:shopping_cart_id] = @shopping_cart.id
   end
 
