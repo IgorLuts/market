@@ -13,10 +13,23 @@ class ShoppingCartItemsController < ApplicationController
     redirect_to shopping_cart_path
   end
 
+  def update
+    shopping_cart_item = ShoppingCartItem.find_by(id: params[:item_id])
+
+    new_price = shopping_cart_item_params[:shape_size] == '2.0' ? shopping_cart_item.price + Money.from_amount(1000, "USD") : shopping_cart_item.price - Money.from_amount(1000, "USD")
+
+    shopping_cart_item.update(shopping_cart_item_params.merge(price: new_price))
+
+    redirect_to shopping_cart_path
+  end
+
   def destroy
     @item = Product.find(params[:product_id])
     @shopping_cart.remove(@item)
     redirect_to shopping_cart_path
   end
 
+  def shopping_cart_item_params
+    params.require(:shopping_cart_item).permit(:shape_size)
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210418190040) do
+ActiveRecord::Schema.define(version: 20210424151657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -186,7 +186,7 @@ ActiveRecord::Schema.define(version: 20210418190040) do
     t.string   "meta_keywords"
     t.integer  "category_id"
     t.float    "old_price"
-    t.float    "shape_size"
+    t.text     "shape_sizes",      default: [],                array: true
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
@@ -203,6 +203,7 @@ ActiveRecord::Schema.define(version: 20210418190040) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.integer  "order_id"
+    t.float    "shape_size"
   end
 
   add_index "shopping_cart_items", ["order_id"], name: "index_shopping_cart_items_on_order_id", using: :btree

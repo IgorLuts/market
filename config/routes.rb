@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-    
+
   constraints subdomain: 'www' do
     get ':any', to: redirect(subdomain: nil, path: '/%{any}'), any: /.*/
   end
-    
+
   root 'store#index'
 
   get "/404" => "errors#not_found"
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :show, :new, :create]
   resources :users, only: [:show]
   resource :shopping_cart, only: [:show, :destroy]
-  resource :shopping_cart_items, only: [:create, :destroy]
+  resource :shopping_cart_items, only: [:create, :destroy, :update]
   resources :contacts, only: [:new, :create] do
     post 'callback', on: :collection, as: :callback
   end
