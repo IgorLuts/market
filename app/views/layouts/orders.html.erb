@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Ads: 919364254 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-919364254"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-919364254');
+    </script>
+
+    <!-- Event snippet for Покупка-7 conversion page -->
+    <script>
+      gtag('event', 'conversion', {
+          'send_to': 'AW-919364254/-9HqCNqd68UBEJ7FsbYD',
+          'transaction_id': ''
+      });
+    </script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Ладас.укр | Шведские стенки Ладас" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Ладас.укр - официальный сайт, шведские стенки Ладас, цены от производителя" %>">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= favicon_link_tag %>
+    <%= csrf_meta_tags %>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700italic,700,500italic,500,400italic,300,300italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+</head>
+
+
+  <body>
+
+      <%= render 'layouts/top' %>
+      <%= render 'layouts/navbar' %>
+      <div id="all">
+        <div id="content">
+            <div class="container">
+                <%= yield(:breadcrumbs) %>
+                <div class="col-md-3">
+                    <%= yield(:user_menu) %>
+                    <div class="hidden-xs">
+                      <%= render 'layouts/sidebar' %>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <%= render 'layouts/messages' %>
+                    <%= yield %>
+                </div>
+            </div>
+        </div>
+        <%= render 'layouts/footer' %>
+        <%= render 'layouts/copyright' %>
+      </div>
+    <%= javascript_include_tag 'application' %>
+  </body>
+</html>
