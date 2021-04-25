@@ -1,79 +1,69 @@
-<div id="basket">
-  <div class="box">
-      <h1>Корзина</h1>
-      <div class="table-responsive">
-          <table class="table">
-              <thead>
-                  <tr>
-                      <th colspan="2">Товар</th>
-                      <th>Количество</th>
-                      <% if @shape_size_present %>
-                        <th>Толщина профиля</th>
-                      <% end %>
-                      <th>Цена</th>
-                      <th colspan="2">Итого</th>
-                  </tr>
-              </thead>
-              <tbody>
-                <% @shopping_cart.shopping_cart_items.each do |shopping_cart_item| %>
-                  <tr>
-                      <td>
-                          <%= link_to category_product_path(shopping_cart_item.item) do %>
-                              <%= image_tag shopping_cart_item.item.image.preview, class:"img-responsive" %>
-                          <% end %>
-                      </td>
-                      <td>
-                        <%= link_to shopping_cart_item.item.title, category_product_path(shopping_cart_item.item) %>
-                      </td>
-                      <td>
-                          <input type="number" value="<%= shopping_cart_item.quantity %>" class="form-control">
-                      </td>
-                      <% if @shape_size_present %>
-                        <td>
-                        <% if shopping_cart_item.item.shape_sizes.present? %>
-                          <%= form_for shopping_cart_item, :url => shopping_cart_items_path(:item_id => shopping_cart_item.id), :html => { :class => 'form-inline'} do |f| %>
-                            <%= f.select(:shape_size, shopping_cart_item.item.shape_sizes, {}, {class: 'form-control', :onchange => 'this.form.submit()'}) %>
-                          <% end %>
-                        <% else %>
-                          -
-                        <% end %>
-                        </td>
-                      <% end %>
-                      <td>
-                        <%= shopping_cart_item.item.price %>
-                      </td>
-                      <td>
-                        <%= shopping_cart_item.subtotal %></td>
-                      <td>
-                        <%= link_to shopping_cart_items_path(:product_id => shopping_cart_item.item.id), method: :delete do %>
-                          <i class="fa fa-trash-o"></i>
-                        <% end %>
-                      </td>
-                  </tr>
-                <% end %>
-              </tbody>
-              <tfoot>
-                  <tr>
-                      <th colspan="5">Итого:</th>
-                      <th colspan="2"><%= number_to_currency @shopping_cart.total %></th>
-                  </tr>
-              </tfoot>
-          </table>
-      </div>
+<div class="shopping-cart">
+  <h1>Корзина</h1>
 
-      <div class="box-footer">
-          <div class="pull-left">
-             <%= link_to :back, class: "btn btn-default" do %>
-              <i class="fa fa-chevron-left"></i> Продолжить покупки
-             <% end %>
-          </div>
-          <div class="pull-right">
-            <%= link_to 'Очистить корзину', @shopping_cart, method: :delete, class: "btn btn-default"%>
-             <%= link_to new_order_path, class: "btn btn-primary" do %>
-             Оформить заказ <i class="fa fa-chevron-right"></i>
-             <% end %>
-          </div>
-      </div>
+  <div class="column-labels">
+    <label class="product-image">Image</label>
+    <label class="product-details">Товар</label>
+    <label class="product-price">Цена</label>
+    <% if @shape_size_present %>
+      <label class="product-quantity">Нагрузка</label>
+    <% end %>
+    <label class="product-removal">Remove</label>
+    <label class="product-line-price">Итого</label>
   </div>
-</div>
 
+  <% @shopping_cart.shopping_cart_items.each do |shopping_cart_item| %>
+    <div class="product2">
+      <div class="product-image">
+        <%= link_to category_product_path(shopping_cart_item.item) do %>
+            <%= image_tag shopping_cart_item.item.image.preview, class:"img-responsive" %>
+        <% end %>
+      </div>
+      <div class="product-details">
+        <div class="product-title">
+          <%= link_to shopping_cart_item.item.title, category_product_path(shopping_cart_item.item) %>
+        </div>
+      </div>
+      <div class="product-price">
+        <%= shopping_cart_item.item.price %>
+      </div>
+
+      <div class="product-weight">
+        Нагрузка
+      </div>
+
+      <% if @shape_size_present %>
+        <div class="product-quantity">
+          <% if shopping_cart_item.item.shape_sizes.present? %>
+            <%= form_for shopping_cart_item, :url => shopping_cart_items_path(:item_id => shopping_cart_item.id), :html => { :class => 'form-inline'} do |f| %>
+              <%= f.select(:shape_size, [['до 80 кг', 1.5], ['до 120 кг', 2.0]], {}, {:onchange => 'this.form.submit()'}) %>
+            <% end %>
+          <% else %>
+            -
+          <% end %>
+        </div>
+      <% end %>
+      <div class="product-removal">
+        <%= link_to shopping_cart_items_path(:product_id => shopping_cart_item.item.id), method: :delete do %>
+          <i class="fa fa-trash-o"></i>
+        <% end %>
+      </div>
+      <div class="product-line-price">
+        <%= number_to_currency shopping_cart_item.subtotal %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="totals">
+    <div class="totals-item">
+      <label>Итого</label>
+      <div class="totals-value" id="cart-subtotal">
+        <%= number_to_currency @shopping_cart.total %>
+      </div>
+    </div>
+  </div>
+
+  <%= button_to new_order_path, class: "checkout", method: :get do %>
+    Оформить заказ
+  <% end %>
+</div>
