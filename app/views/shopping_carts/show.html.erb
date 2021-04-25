@@ -7,7 +7,9 @@
                   <tr>
                       <th colspan="2">Товар</th>
                       <th>Количество</th>
-                      <th>Толщина профиля</th>
+                      <% if @shape_size_present %>
+                        <th>Толщина профиля</th>
+                      <% end %>
                       <th>Цена</th>
                       <th colspan="2">Итого</th>
                   </tr>
@@ -26,15 +28,17 @@
                       <td>
                           <input type="number" value="<%= shopping_cart_item.quantity %>" class="form-control">
                       </td>
-                      <td>
-                      <% if shopping_cart_item.item.shape_sizes.present? %>
-                        <%= form_for shopping_cart_item, :url => shopping_cart_items_path(:item_id => shopping_cart_item.id), :html => { :class => 'form-inline'} do |f| %>
-                          <%= f.select(:shape_size, shopping_cart_item.item.shape_sizes, {}, {class: 'form-control', :onchange => 'this.form.submit()'}) %>
+                      <% if @shape_size_present %>
+                        <td>
+                        <% if shopping_cart_item.item.shape_sizes.present? %>
+                          <%= form_for shopping_cart_item, :url => shopping_cart_items_path(:item_id => shopping_cart_item.id), :html => { :class => 'form-inline'} do |f| %>
+                            <%= f.select(:shape_size, shopping_cart_item.item.shape_sizes, {}, {class: 'form-control', :onchange => 'this.form.submit()'}) %>
+                          <% end %>
+                        <% else %>
+                          -
                         <% end %>
-                      <% else %>
-                        -
+                        </td>
                       <% end %>
-                      </td>
                       <td>
                         <%= shopping_cart_item.item.price %>
                       </td>
