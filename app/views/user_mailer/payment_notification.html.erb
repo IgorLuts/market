@@ -4,7 +4,6 @@
 <% @order.shopping_cart_items.each do |item| %>
   <p>Название: <%= item.item.title %></p>
   <p>Количество: <%= item.quantity  %></p>
-  <p>Цена: <%= number_to_currency item.item.price %></p>
   <hr>
 <% end %>
 

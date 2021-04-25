@@ -28,9 +28,11 @@
         <%= shopping_cart_item.item.price %>
       </div>
 
-      <div class="product-weight">
-        Нагрузка
-      </div>
+      <% if @shape_size_present %>
+        <div class="product-weight">
+          Нагрузка
+        </div>
+      <% end %>
 
       <% if @shape_size_present %>
         <div class="product-quantity">
