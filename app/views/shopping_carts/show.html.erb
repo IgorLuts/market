@@ -36,7 +36,7 @@
 
       <% if @shape_size_present %>
         <div class="product-quantity">
-          <% if shopping_cart_item.item.shape_sizes.present? %>
+          <% if shopping_cart_item.item.shape_sizes.any?(&:present?) %>
             <%= form_for shopping_cart_item, :url => shopping_cart_items_path(:item_id => shopping_cart_item.id), :html => { :class => 'form-inline'} do |f| %>
               <%= f.select(:shape_size, [['до 80 кг', 1.5], ['до 120 кг', 2.0]], {}, {:onchange => 'this.form.submit()'}) %>
             <% end %>

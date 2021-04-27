@@ -5,7 +5,7 @@ class ShoppingCartsController < ApplicationController
 
   def show
     @shape_size_present = @shopping_cart.shopping_cart_items.any? do |shopping_cart_item|
-      shopping_cart_item.item.shape_sizes.present?
+      shopping_cart_item.item.shape_sizes.any?(&:present?)
     end
   end
 
