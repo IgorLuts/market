@@ -16,9 +16,11 @@ class ShoppingCartItemsController < ApplicationController
   def update
     shopping_cart_item = ShoppingCartItem.find_by(id: params[:item_id])
 
-    new_price = shopping_cart_item_params[:shape_size] == '2.0' ? shopping_cart_item.price + Money.from_amount(1000, "USD") : shopping_cart_item.price - Money.from_amount(1000, "USD")
-
-    shopping_cart_item.update(shopping_cart_item_params.merge(price: new_price))
+    shopping_cart_item.update(
+      shopping_cart_item_params.merge(
+        price: product_price(shopping_cart_item_params[:shape_size], shopping_cart_item)
+      )
+    )
 
     redirect_to shopping_cart_path
   end
@@ -31,5 +33,11 @@ class ShoppingCartItemsController < ApplicationController
 
   def shopping_cart_item_params
     params.require(:shopping_cart_item).permit(:shape_size)
+  end
+
+  def product_price(shape_size, shopping_cart_item)
+    is_higher_size = shopping_cart_item.item.shape_sizes.max
+
+    shape_size == is_higher_size ? shopping_cart_item.price + Money.from_amount(1000, "USD") : shopping_cart_item.price - Money.from_amount(1000, "USD")
   end
 end
