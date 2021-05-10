@@ -1,7 +1,7 @@
 ActiveAdmin.register Product do
 
   permit_params :title, :description, :image, :price, :available, :sales_info, :meta_title, :meta_description, :meta_keywords,
-                :feature, :category_id, :slug, :characteristics, :old_price, shape_sizes: [], tag_ids: [], gallery: []
+                :feature, :category_id, :slug, :characteristics, :old_price, :display_order, shape_sizes: [], tag_ids: [], gallery: []
 
   index do
     selectable_column
@@ -33,6 +33,7 @@ ActiveAdmin.register Product do
       f.input :price
       f.input :category, :as => :select, :collection => Category.where(active: true)
       f.input :available
+      f.input :display_order
       f.input :sales_info
       f.input :feature, :as => :select, :collection => ["sale", "new", "gift"]
       f.input :shape_sizes, :as => :select, multiple: true, :collection => [1.5, 2.0, 2.5]
