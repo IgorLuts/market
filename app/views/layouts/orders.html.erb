@@ -13,12 +13,19 @@
 
     <!-- Event snippet for Покупка-7 conversion page -->
     <script>
-      gtag('event', 'conversion', {
-          'send_to': 'AW-919364254/-9HqCNqd68UBEJ7FsbYD',
-          'transaction_id': ''
-      });
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-919364254/SNelCJqexdoBEJ7FsbYD',
+            'event_callback': callback
+        });
+        return false;
+      }
     </script>
-
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Ладас.укр | Шведские стенки Ладас" %></title>
